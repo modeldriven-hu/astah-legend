@@ -20,4 +20,10 @@ Add legend support for Astah.
     - Name
     - Background color
     - Text color
-    - Rule [describing the rule in Groovy, like hasSterepotype(item, "Subsystem") ] 
+    - Rule [describing the rule in Groovy, like hasSterepotype(item, "Subsystem") ]
+- Ability to manage legends
+-   Create a new legend
+-   Modify a legend
+-   Delete a legend
+  - Legend repository? Does it make sense to have anything like that?    
+      
