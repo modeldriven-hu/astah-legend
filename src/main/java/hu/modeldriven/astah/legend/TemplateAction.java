@@ -4,10 +4,16 @@ package hu.modeldriven.astah.legend;
 import javax.swing.JOptionPane;
 
 import com.change_vision.jude.api.inf.AstahAPI;
+import com.change_vision.jude.api.inf.editor.BlockDefinitionDiagramEditor;
+import com.change_vision.jude.api.inf.editor.ClassDiagramEditor;
 import com.change_vision.jude.api.inf.exception.ProjectNotFoundException;
+import com.change_vision.jude.api.inf.model.IDiagram;
+import com.change_vision.jude.api.inf.presentation.INodePresentation;
 import com.change_vision.jude.api.inf.project.ProjectAccessor;
 import com.change_vision.jude.api.inf.ui.IPluginActionDelegate;
 import com.change_vision.jude.api.inf.ui.IWindow;
+
+import java.awt.geom.Point2D;
 
 public class TemplateAction implements IPluginActionDelegate {
 
@@ -15,7 +21,12 @@ public class TemplateAction implements IPluginActionDelegate {
 	    try {
 	        AstahAPI api = AstahAPI.getAstahAPI();
 	        ProjectAccessor projectAccessor = api.getProjectAccessor();
-	        projectAccessor.getProject();
+			IDiagram diagram = projectAccessor.getViewManager().getDiagramViewManager().getCurrentDiagram();
+
+			BlockDefinitionDiagramEditor editor = projectAccessor.getDiagramEditorFactory().getClassDiagramEditor();
+			editor.setDiagram(diagram);
+			editor.createRect(new Point2D.Double(10,10),30,30);
+
 	        JOptionPane.showMessageDialog(window.getParent(),"Hello");
 	    } catch (ProjectNotFoundException e) {
 	        String message = "Project is not opened.Please open the project or create new project.";
