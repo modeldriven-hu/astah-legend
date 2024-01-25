@@ -96,9 +96,9 @@ public class LegendItemTableModel extends AbstractTableModel {
             case 0:
                 return "Id";
             case 1:
-                return "Legend item";
-            case 2:
                 return "Name";
+            case 2:
+                return "Legend Item";
             default:
                 return "Unknown column";
         }
@@ -108,9 +108,9 @@ public class LegendItemTableModel extends AbstractTableModel {
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case 0:
-            case 2:
-                return String.class;
             case 1:
+                return String.class;
+            case 2:
                 return Color.class;
             default:
                 return null;
@@ -127,11 +127,11 @@ public class LegendItemTableModel extends AbstractTableModel {
         }
 
         if (column == 1) {
-            return legendItem.getBackgroundColor();
+            return legendItem.getName();
         }
 
         if (column == 2) {
-            return legendItem.getName();
+            return legendItem.getBackgroundColor();
         }
 
         return null;

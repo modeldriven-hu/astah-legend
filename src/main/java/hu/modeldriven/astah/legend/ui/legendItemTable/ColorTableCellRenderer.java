@@ -2,7 +2,6 @@ package hu.modeldriven.astah.legend.ui.legendItemTable;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
 import java.awt.Color;
 import java.awt.Component;
 

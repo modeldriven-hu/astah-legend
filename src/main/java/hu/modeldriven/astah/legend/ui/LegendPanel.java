@@ -95,6 +95,9 @@ public class LegendPanel extends AbstractLegendPanel {
 
         this.legendItemTable.setModel(tableModel);
         this.legendItemTable.setDefaultRenderer(Color.class, new ColorTableCellRenderer());
+        this.legendItemTable.getColumnModel().getColumn(0).setWidth(0);
+        this.legendItemTable.getColumnModel().getColumn(0).setMinWidth(0);
+        this.legendItemTable.getColumnModel().getColumn(0).setMaxWidth(0);
     }
 
     private void initUseCases() {
