@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-   <extension point="com.change_vision.astah.ui.view">
-      <view
-              id="hu.modeldriven.astah-legend.LegendView"
-              type="extraTab"
-              class="hu.modeldriven.astah.legend.LegendView"/>
-   </extension>
+    <extension point="com.change_vision.astah.ui.view">
+        <view
+                id="hu.modeldriven.astah-legend.LegendView"
+                type="extraTab"
+                class="hu.modeldriven.astah.legend.LegendView"/>
+    </extension>
 </plugin>

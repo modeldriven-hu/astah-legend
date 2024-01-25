@@ -8,9 +8,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
-public class AbstractMigLegendItemPanel extends JPanel{
+public class AbstractMigLegendItemPanel extends JPanel {
 
-    public AbstractMigLegendItemPanel(){
+    public AbstractMigLegendItemPanel() {
         super();
 
         Font labelFont = getFont();
@@ -19,12 +19,12 @@ public class AbstractMigLegendItemPanel extends JPanel{
                 "[fill]",
                 "[][][]"));
 
-        infoPanel = new JPanel(new MigLayout("","","[]20[]"));
+        infoPanel = new JPanel(new MigLayout("", "", "[]20[]"));
         infoPanel.setBackground(Color.WHITE);
 
         JLabel headerLabel = new JLabel("Legend item");
         headerLabel.setFont(labelFont.deriveFont(Font.BOLD, 18f));
-        infoPanel.add(headerLabel,"wrap");
+        infoPanel.add(headerLabel, "wrap");
 
         JLabel additionalInfoLabel = new JLabel("Configure the legend item!");
         additionalInfoLabel.setFont(labelFont);

@@ -13,4 +13,16 @@ public enum BorderType {
     public String getName() {
         return name;
     }
+
+    public static BorderType getByName(String name) {
+
+        for (BorderType borderType : BorderType.values()) {
+            if (borderType.getName().equals(name)) {
+                return borderType;
+            }
+        }
+
+        return null;
+    }
+
 }

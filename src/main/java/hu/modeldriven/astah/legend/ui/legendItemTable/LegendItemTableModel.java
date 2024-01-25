@@ -98,7 +98,7 @@ public class LegendItemTableModel extends AbstractTableModel {
             case 1:
                 return "Name";
             case 2:
-                return "Legend Item";
+                return "Background";
             default:
                 return "Unknown column";
         }

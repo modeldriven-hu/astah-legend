@@ -4,7 +4,6 @@ import hu.modeldriven.astah.legend.ui.model.LegendStyle;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.util.function.Consumer;
 
 public class LegendStyleDialog extends JDialog {

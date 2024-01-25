@@ -1,5 +1,7 @@
 package hu.modeldriven.astah.legend.ui.components;
 
+import hu.modeldriven.astah.legend.ui.model.BorderFormat;
+import hu.modeldriven.astah.legend.ui.model.BorderType;
 import hu.modeldriven.astah.legend.ui.model.LegendStyle;
 
 import javax.swing.*;
@@ -46,7 +48,11 @@ public class LegendStylePanel extends AbstractMigLegendStylePanel {
         okButton.addActionListener(actionEvent -> {
 
             LegendStyle legendStyle = new LegendStyle(
-
+                    backgroundColorPanel.getBackground(),
+                    borderColorPanel.getBackground(),
+                    Integer.parseInt(borderWidthTextField.getText()),
+                    BorderType.getByName(borderTypeComboBox.getSelectedItem().toString()),
+                    BorderFormat.getByName(borderFormatComboBox.getSelectedItem().toString())
             );
 
             callback.accept(legendStyle);

@@ -12,46 +12,34 @@ public class LegendStyle {
     private BorderFormat borderFormat = BorderFormat.ROUNDED;
 
     public LegendStyle() {
+    }
 
+    public LegendStyle(Color backgroundColor, Color borderColor, int borderWidth, BorderType borderType, BorderFormat borderFormat) {
+        this.backgroundColor = backgroundColor;
+        this.borderColor = borderColor;
+        this.borderWidth = borderWidth;
+        this.borderType = borderType;
+        this.borderFormat = borderFormat;
     }
 
     public Color getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
     public Color getBorderColor() {
         return borderColor;
-    }
-
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
     }
 
     public int getBorderWidth() {
         return borderWidth;
     }
 
-    public void setBorderWidth(int borderWidth) {
-        this.borderWidth = borderWidth;
-    }
-
     public BorderType getBorderType() {
         return borderType;
-    }
-
-    public void setBorderType(BorderType borderType) {
-        this.borderType = borderType;
     }
 
     public BorderFormat getBorderFormat() {
         return borderFormat;
     }
 
-    public void setBorderFormat(BorderFormat borderFormat) {
-        this.borderFormat = borderFormat;
-    }
 }

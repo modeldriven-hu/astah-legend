@@ -3,13 +3,16 @@ package hu.modeldriven.astah.legend.ui.components;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
 public class AbstractMigLegendStylePanel extends JPanel {
 
     //private Font labelFont = new Font("Segoe UI Light", Font.PLAIN, 18);
 
-    public AbstractMigLegendStylePanel(){
+    public AbstractMigLegendStylePanel() {
         super();
 
         Font labelFont = getFont();
@@ -18,12 +21,12 @@ public class AbstractMigLegendStylePanel extends JPanel {
                 "[fill]",
                 "[][][]"));
 
-        infoPanel = new JPanel(new MigLayout("","","[]20[]"));
+        infoPanel = new JPanel(new MigLayout("", "", "[]20[]"));
         infoPanel.setBackground(Color.WHITE);
 
         JLabel headerLabel = new JLabel("Legend style");
         headerLabel.setFont(labelFont.deriveFont(Font.BOLD, 18f));
-        infoPanel.add(headerLabel,"wrap");
+        infoPanel.add(headerLabel, "wrap");
 
         JLabel additionalInfoLabel = new JLabel("Configure the style settings of a legend");
         additionalInfoLabel.setFont(labelFont);
@@ -34,12 +37,12 @@ public class AbstractMigLegendStylePanel extends JPanel {
         contentPanel = new JPanel(new MigLayout(
                 "hidemode 3",
                 // columns
-                        "[fill]" +
+                "[fill]" +
                         "[fill]" +
                         "[fill]" +
                         "[fill]",
                 // rows
-                        "[]" +
+                "[]" +
                         "[]" +
                         "[]" +
                         "[]" +

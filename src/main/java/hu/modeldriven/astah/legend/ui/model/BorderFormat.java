@@ -2,8 +2,7 @@ package hu.modeldriven.astah.legend.ui.model;
 
 public enum BorderFormat {
 
-    RECTANGLE("Rectangle"), ROUNDED("Rounded rectangle"),
-    ;
+    RECTANGLE("Rectangle"), ROUNDED("Rounded rectangle");
 
     private final String name;
 
@@ -14,4 +13,15 @@ public enum BorderFormat {
     public String getName() {
         return name;
     }
+
+    public static BorderFormat getByName(String name) {
+        for (BorderFormat borderFormat : BorderFormat.values()) {
+            if (borderFormat.getName().equals(name)) {
+                return borderFormat;
+            }
+        }
+
+        return null;
+    }
+
 }
