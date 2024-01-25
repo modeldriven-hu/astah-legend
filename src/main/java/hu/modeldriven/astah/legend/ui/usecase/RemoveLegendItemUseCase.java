@@ -3,6 +3,7 @@ package hu.modeldriven.astah.legend.ui.usecase;
 import hu.modeldriven.astah.legend.ui.event.LegendItemRemovedEvent;
 import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.event.RemoveLegendItemRequestedEvent;
+import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -22,8 +23,11 @@ public class RemoveLegendItemUseCase implements EventHandler<RemoveLegendItemReq
 
     @Override
     public void handleEvent(RemoveLegendItemRequestedEvent event) {
-        this.tableModel.removeLegendItem(event.getLegendItem());
-        this.eventBus.publish(new LegendItemRemovedEvent(event.getLegendItem()));
+
+        LegendItem legendItem = event.getLegendItem();
+
+        this.tableModel.removeLegendItem(legendItem);
+        this.eventBus.publish(new LegendItemRemovedEvent(legendItem));
     }
 
     @Override

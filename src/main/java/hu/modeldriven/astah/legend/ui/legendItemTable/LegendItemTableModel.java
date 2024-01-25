@@ -22,23 +22,21 @@ public class LegendItemTableModel extends AbstractTableModel {
     }
 
     public void removeLegendItem(LegendItem legendItem) {
-        this.legendItems.removeIf(item -> item.getId().equals(legendItem.getId()));
+        this.legendItems.removeIf(item -> matches(item, legendItem));
         fireTableDataChanged();
     }
 
     public void updateLegendItem(LegendItem legendItem) {
-        int position = -1;
 
         for (int i = 0; i < legendItems.size(); i++) {
-            if (legendItems.get(i).getId().equals(legendItem.getId())){
-                position = i;
-            }
-        }
 
-        if (position != -1) {
-            legendItems.remove(position);
-            legendItems.add(position, legendItem);
-            fireTableDataChanged();
+            LegendItem item = legendItems.get(i);
+
+            if (matches(item, legendItem)){
+                legendItems.set(i, legendItem);
+                fireTableDataChanged();
+                break;
+            }
         }
 
     }
@@ -48,7 +46,7 @@ public class LegendItemTableModel extends AbstractTableModel {
         for (int currentRow = 0; currentRow < legendItems.size(); currentRow++) {
             LegendItem item = legendItems.get(currentRow);
 
-            if (item.getId().equals(legendItem.getId()) && currentRow > 0) {
+            if (matches(item, legendItem) && currentRow > 0) {
                 Collections.swap(legendItems, currentRow, currentRow - 1);
                 fireTableDataChanged();
                 return;
@@ -61,12 +59,16 @@ public class LegendItemTableModel extends AbstractTableModel {
         for (int currentRow = 0; currentRow < legendItems.size(); currentRow++) {
             LegendItem item = legendItems.get(currentRow);
 
-            if (item.getId().equals(legendItem.getId()) && currentRow < legendItems.size() - 1) {
+            if (matches(item, legendItem) && currentRow < legendItems.size() - 1) {
                 Collections.swap(legendItems, currentRow, currentRow + 1);
                 fireTableDataChanged();
                 return;
             }
         }
+    }
+
+    private boolean matches(LegendItem a, LegendItem b) {
+        return a.getId().equals(b.getId());
     }
 
     public void reset() {

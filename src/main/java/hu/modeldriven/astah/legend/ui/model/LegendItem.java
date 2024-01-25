@@ -28,14 +28,6 @@ public class LegendItem {
         this.script = script;
     }
 
-    public LegendItem(LegendItem item) {
-        this.id = item.id;
-        this.name = item.name;
-        this.backgroundColor = item.backgroundColor;
-        this.textColor = item.textColor;
-        this.script = item.script;
-    }
-
     public String getId() {
         return id;
     }
