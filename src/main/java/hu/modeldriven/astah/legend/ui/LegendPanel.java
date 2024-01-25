@@ -83,6 +83,13 @@ public class LegendPanel extends AbstractLegendPanel{
             }
         });
 
+        editButton.addActionListener(e -> {
+            if (legendItemTable.getSelectedRowCount() == 1){
+                LegendItem item = tableModel.getRow(legendItemTable.getSelectedRow());
+                eventBus.publish(new EditLegendItemRequestedEvent(item));
+            }
+        });
+
         this.legendItemTable.setModel(tableModel);
     }
 
@@ -94,6 +101,7 @@ public class LegendPanel extends AbstractLegendPanel{
         eventBus.subscribe(new ClearLegendItemsTableUseCase(tableModel));
         eventBus.subscribe(new RemoveLegendItemUseCase(tableModel));
         eventBus.subscribe(new ReorganizeLegendItemUseCase(tableModel));
+        eventBus.subscribe(new DisplayLegendItemEditDialogUseCase(eventBus));
     }
 
 }

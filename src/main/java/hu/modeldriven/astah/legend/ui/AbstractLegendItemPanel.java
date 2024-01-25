@@ -4,16 +4,18 @@
  */
 package hu.modeldriven.astah.legend.ui;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author zsolt
  */
-public class AbstractLegendItemFrame extends javax.swing.JFrame {
+public class AbstractLegendItemPanel extends JPanel {
 
     /**
      * Creates new form AbstractLegendStyleForm
      */
-    public AbstractLegendItemFrame() {
+    public AbstractLegendItemPanel() {
         initComponents();
     }
 
@@ -31,8 +33,8 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
         backgroundColorButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         backgroundColorPanel = new javax.swing.JPanel();
-        borderColorButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        textColorButton = new javax.swing.JButton();
+        textColorPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -45,7 +47,7 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLayout(new java.awt.BorderLayout());
 
         jLabel1.setText("Background color:");
 
@@ -67,19 +69,19 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        borderColorButton.setText("Select...");
+        textColorButton.setText("Select...");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(120, 32));
+        textColorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        textColorPanel.setPreferredSize(new java.awt.Dimension(120, 32));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout textColorPanelLayout = new javax.swing.GroupLayout(textColorPanel);
+        textColorPanel.setLayout(textColorPanelLayout);
+        textColorPanelLayout.setHorizontalGroup(
+            textColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 118, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        textColorPanelLayout.setVerticalGroup(
+            textColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
@@ -107,12 +109,12 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
                         .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(contentPaneLayout.createSequentialGroup()
                                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textColorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(backgroundColorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(backgroundColorButton)
-                                    .addComponent(borderColorButton)))
+                                    .addComponent(textColorButton)))
                             .addComponent(jScrollPane1)
                             .addGroup(contentPaneLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
@@ -140,14 +142,14 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(contentPaneLayout.createSequentialGroup()
                         .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(borderColorButton))
+                            .addComponent(textColorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textColorButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)))
                 .addGap(7, 7, 7))
         );
 
-        getContentPane().add(contentPane, java.awt.BorderLayout.CENTER);
+        add(contentPane, java.awt.BorderLayout.CENTER);
 
         infoPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,7 +179,7 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        getContentPane().add(infoPanel, java.awt.BorderLayout.NORTH);
+        add(infoPanel, java.awt.BorderLayout.NORTH);
 
         buttonPanel.setPreferredSize(new java.awt.Dimension(386, 50));
 
@@ -206,9 +208,7 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        getContentPane().add(buttonPanel, java.awt.BorderLayout.SOUTH);
-
-        pack();
+        add(buttonPanel, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -228,21 +228,23 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AbstractLegendItemFrame().setVisible(true);
+                new AbstractLegendItemPanel().setVisible(true);
             }
         });
     }
@@ -250,7 +252,6 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton backgroundColorButton;
     protected javax.swing.JPanel backgroundColorPanel;
-    protected javax.swing.JButton borderColorButton;
     private javax.swing.JPanel buttonPanel;
     protected javax.swing.JButton cancelButton;
     private javax.swing.JPanel contentPane;
@@ -261,10 +262,11 @@ public class AbstractLegendItemFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    protected javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     protected javax.swing.JTextField nameField;
     protected javax.swing.JButton okButton;
     protected javax.swing.JTextArea scriptTextField;
+    protected javax.swing.JButton textColorButton;
+    protected javax.swing.JPanel textColorPanel;
     // End of variables declaration//GEN-END:variables
 }

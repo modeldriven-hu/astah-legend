@@ -8,12 +8,12 @@ package hu.modeldriven.astah.legend.ui;
  *
  * @author zsolt
  */
-public class AbstractLegendStyleFrame extends javax.swing.JFrame {
+public class AbstractLegendStylePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AbstractLegendStyleForm
      */
-    public AbstractLegendStyleFrame() {
+    public AbstractLegendStylePanel() {
         initComponents();
     }
 
@@ -47,8 +47,8 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(450, 364));
+        setLayout(new java.awt.BorderLayout());
 
         jLabel1.setText("Background color:");
 
@@ -170,7 +170,7 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        getContentPane().add(contentPane, java.awt.BorderLayout.CENTER);
+        add(contentPane, java.awt.BorderLayout.CENTER);
 
         infoPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -200,7 +200,7 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        getContentPane().add(infoPanel, java.awt.BorderLayout.NORTH);
+        add(infoPanel, java.awt.BorderLayout.NORTH);
 
         buttonPanel.setPreferredSize(new java.awt.Dimension(386, 50));
 
@@ -229,9 +229,7 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        getContentPane().add(buttonPanel, java.awt.BorderLayout.SOUTH);
-
-        pack();
+        add(buttonPanel, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -251,13 +249,13 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AbstractLegendItemFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AbstractLegendItemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -265,7 +263,7 @@ public class AbstractLegendStyleFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AbstractLegendItemFrame().setVisible(true);
+                new AbstractLegendItemPanel().setVisible(true);
             }
         });
     }
