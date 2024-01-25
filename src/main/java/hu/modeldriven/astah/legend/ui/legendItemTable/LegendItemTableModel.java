@@ -32,7 +32,7 @@ public class LegendItemTableModel extends AbstractTableModel {
 
             LegendItem item = legendItems.get(i);
 
-            if (matches(item, legendItem)){
+            if (matches(item, legendItem)) {
                 legendItems.set(i, legendItem);
                 fireTableDataChanged();
                 break;

@@ -3,7 +3,7 @@ package hu.modeldriven.astah.legend;
 import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.ui.IPluginExtraTabView;
 import com.change_vision.jude.api.inf.ui.ISelectionListener;
-import hu.modeldriven.astah.legend.ui.LegendPanel;
+import hu.modeldriven.astah.legend.ui.components.LegendPanel;
 import hu.modeldriven.core.eventbus.EventBus;
 
 import javax.swing.*;

@@ -10,7 +10,7 @@ public class Legend {
 
     private final List<LegendItem> legendItems = new ArrayList<LegendItem>();
 
-    public Legend(){
+    public Legend() {
         this.style = new LegendStyle();
     }
 

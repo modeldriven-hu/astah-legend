@@ -11,15 +11,15 @@ public class ColorTableCellRenderer extends DefaultTableCellRenderer {
                                                    Object value,
                                                    boolean isSelected,
                                                    boolean hasFocus,
-                                                   int row, int column){
+                                                   int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
         this.setText("");
 
-        if (value instanceof Color){
-            this.setBackground((Color)value);
+        if (value instanceof Color) {
+            this.setBackground((Color) value);
         } else {
-            if (isSelected){
+            if (isSelected) {
                 this.setBackground(UIManager.getColor("Table.selectionBackground"));
             } else {
                 this.setBackground(UIManager.getColor("Table.background"));

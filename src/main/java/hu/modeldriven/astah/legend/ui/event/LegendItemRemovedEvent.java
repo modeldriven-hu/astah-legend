@@ -7,7 +7,7 @@ public class LegendItemRemovedEvent implements Event {
 
     private final LegendItem legendItem;
 
-    public LegendItemRemovedEvent(LegendItem legendItem){
+    public LegendItemRemovedEvent(LegendItem legendItem) {
         this.legendItem = legendItem;
     }
 

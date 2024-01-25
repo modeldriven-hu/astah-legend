@@ -1,6 +1,5 @@
-package hu.modeldriven.astah.legend.ui;
+package hu.modeldriven.astah.legend.ui.components;
 
-import hu.modeldriven.astah.legend.ui.components.AbstractLegendPanel;
 import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.astah.legend.ui.legendItemTable.ColorTableCellRenderer;
 import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;

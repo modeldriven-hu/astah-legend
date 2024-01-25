@@ -7,7 +7,7 @@ public class ModifyLegendStyleRequestedEvent implements Event {
 
     private final LegendStyle legendStyle;
 
-    public ModifyLegendStyleRequestedEvent(LegendStyle legendStyle){
+    public ModifyLegendStyleRequestedEvent(LegendStyle legendStyle) {
         this.legendStyle = legendStyle;
     }
 

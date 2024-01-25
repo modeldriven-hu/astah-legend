@@ -59,13 +59,15 @@ public class AbstractLegendStylePanel extends javax.swing.JPanel {
         jLabel2.setText("Border color:");
 
         backgroundColorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        backgroundColorPanel.setPreferredSize(new java.awt.Dimension(118, 32));
+        backgroundColorPanel.setMaximumSize(new java.awt.Dimension(120, 32));
+        backgroundColorPanel.setMinimumSize(new java.awt.Dimension(120, 32));
+        backgroundColorPanel.setPreferredSize(new java.awt.Dimension(120, 32));
 
         javax.swing.GroupLayout backgroundColorPanelLayout = new javax.swing.GroupLayout(backgroundColorPanel);
         backgroundColorPanel.setLayout(backgroundColorPanelLayout);
         backgroundColorPanelLayout.setHorizontalGroup(
             backgroundColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
+            .addGap(0, 118, Short.MAX_VALUE)
         );
         backgroundColorPanelLayout.setVerticalGroup(
             backgroundColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,6 +88,8 @@ public class AbstractLegendStylePanel extends javax.swing.JPanel {
         borderColorButton.setText("Select...");
 
         borderColorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        borderColorPanel.setMaximumSize(new java.awt.Dimension(120, 32));
+        borderColorPanel.setMinimumSize(new java.awt.Dimension(120, 32));
         borderColorPanel.setPreferredSize(new java.awt.Dimension(120, 32));
 
         javax.swing.GroupLayout borderColorPanelLayout = new javax.swing.GroupLayout(borderColorPanel);

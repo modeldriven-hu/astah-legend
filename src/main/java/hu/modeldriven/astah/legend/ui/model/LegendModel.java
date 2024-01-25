@@ -35,7 +35,7 @@ public class LegendModel implements EventHandler<Event> {
             this.legend = new Legend();
         }
 
-        if (event instanceof LegendNameChangedEvent){
+        if (event instanceof LegendNameChangedEvent) {
             LegendNameChangedEvent e = (LegendNameChangedEvent) event;
             this.legend.setName(e.getName());
         }

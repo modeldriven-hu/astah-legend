@@ -2,15 +2,13 @@ package hu.modeldriven.astah.legend;
 
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
-import hu.modeldriven.astah.legend.ui.components.LegendPanel;
-import hu.modeldriven.core.eventbus.EventBus;
+import hu.modeldriven.astah.legend.ui.components.AbstractMigLegendStylePanel;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-public class TestFrame {
-
+public class TestLegendStylePanel {
     private JFrame frame;
 
     public static void main(String[] args) throws Exception {
@@ -26,7 +24,7 @@ public class TestFrame {
 
         SwingUtilities.invokeLater(() -> {
             try {
-                TestFrame window = new TestFrame();
+                TestLegendStylePanel window = new TestLegendStylePanel();
                 window.frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -34,7 +32,7 @@ public class TestFrame {
         });
     }
 
-    public TestFrame() {
+    public TestLegendStylePanel() {
         initialize();
     }
 
@@ -47,9 +45,7 @@ public class TestFrame {
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        EventBus eventBus = new EventBus();
-
-        JPanel panel = new LegendPanel(frame, eventBus);
+        JPanel panel = new AbstractMigLegendStylePanel();
 
         frame.getContentPane().add(panel, BorderLayout.NORTH);
     }
