@@ -1,7 +1,5 @@
 package hu.modeldriven.astah.legend;
 
-import hu.modeldriven.astah.legend.ui.AbstractLegendPanel;
-
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
 import hu.modeldriven.astah.legend.ui.LegendPanel;

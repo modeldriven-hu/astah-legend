@@ -1,7 +1,7 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import hu.modeldriven.astah.legend.ui.LegendItemDialog;
-import hu.modeldriven.astah.legend.ui.event.EditLegendItemRequestedEvent;
+import hu.modeldriven.astah.legend.ui.components.LegendItemDialog;
+import hu.modeldriven.astah.legend.ui.event.ModifyLegendItemRequestedEvent;
 import hu.modeldriven.astah.legend.ui.event.LegendItemModifiedEvent;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
@@ -10,7 +10,7 @@ import hu.modeldriven.core.eventbus.EventHandler;
 import java.util.Collections;
 import java.util.List;
 
-public class DisplayLegendItemEditDialogUseCase implements EventHandler<EditLegendItemRequestedEvent> {
+public class DisplayLegendItemEditDialogUseCase implements EventHandler<ModifyLegendItemRequestedEvent> {
 
     private final EventBus eventBus;
 
@@ -19,7 +19,7 @@ public class DisplayLegendItemEditDialogUseCase implements EventHandler<EditLege
     }
 
     @Override
-    public void handleEvent(EditLegendItemRequestedEvent event) {
+    public void handleEvent(ModifyLegendItemRequestedEvent event) {
         LegendItemDialog dialog = new LegendItemDialog(legendItem -> {
             eventBus.publish(new LegendItemModifiedEvent(legendItem));
         });
@@ -30,6 +30,6 @@ public class DisplayLegendItemEditDialogUseCase implements EventHandler<EditLege
 
     @Override
     public List<Class<? extends Event>> subscribedEvents() {
-        return Collections.singletonList(EditLegendItemRequestedEvent.class);
+        return Collections.singletonList(ModifyLegendItemRequestedEvent.class);
     }
 }

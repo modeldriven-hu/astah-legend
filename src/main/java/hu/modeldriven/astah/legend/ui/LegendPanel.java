@@ -1,5 +1,6 @@
 package hu.modeldriven.astah.legend.ui;
 
+import hu.modeldriven.astah.legend.ui.components.AbstractLegendPanel;
 import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.astah.legend.ui.legendItemTable.ColorTableCellRenderer;
 import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
@@ -20,11 +21,14 @@ public class LegendPanel extends AbstractLegendPanel {
 
     private final LegendItemTableModel tableModel;
 
+    private final LegendModel legendModel;
+
     public LegendPanel(Component parentComponent, EventBus eventBus) {
         super();
         this.parentComponent = parentComponent;
         this.eventBus = eventBus;
         this.tableModel = new LegendItemTableModel();
+        this.legendModel = new LegendModel(eventBus);
         initUIComponents();
         initUseCases();
     }
@@ -60,6 +64,10 @@ public class LegendPanel extends AbstractLegendPanel {
                 eventBus.publish(new LegendNameChangedEvent(legendNameTextField.getText()));
             }
         });
+
+        configureStyleButton.addActionListener(e -> {
+            eventBus.publish(new ModifyLegendStyleRequestedEvent(legendModel.getLegend().getStyle()));
+        });
     }
 
     private void initLegendItemPanel() {
@@ -89,7 +97,7 @@ public class LegendPanel extends AbstractLegendPanel {
         editButton.addActionListener(e -> {
             if (legendItemTable.getSelectedRowCount() == 1) {
                 LegendItem item = tableModel.getRow(legendItemTable.getSelectedRow());
-                eventBus.publish(new EditLegendItemRequestedEvent(item));
+                eventBus.publish(new ModifyLegendItemRequestedEvent(item));
             }
         });
 
@@ -101,7 +109,7 @@ public class LegendPanel extends AbstractLegendPanel {
     }
 
     private void initUseCases() {
-        eventBus.subscribe(new LegendModel(eventBus));
+        eventBus.subscribe(legendModel);
         eventBus.subscribe(new CreateLegendItemUseCase(eventBus));
         eventBus.subscribe(new UpdateTableOnLegendItemCreationUseCase(tableModel));
         eventBus.subscribe(new ClearLegendNameUseCase(legendNameTextField));

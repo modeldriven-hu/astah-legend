@@ -50,9 +50,6 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newButtonActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
               </AuxValues>
@@ -88,9 +85,6 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="applyLegendButtonActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
               </AuxValues>
@@ -150,7 +144,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="configureLegendStyleButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="configureStyleButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="818" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -167,7 +161,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="configureLegendStyleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="configureStyleButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="legendStyleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="245" max="32767" attributes="0"/>
@@ -191,10 +185,13 @@
                     <Property name="text" type="java.lang.String" value="Style:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="configureLegendStyleButton">
+                <Component class="javax.swing.JButton" name="configureStyleButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Configure..."/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -287,9 +284,6 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Edit..."/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButtonActionPerformed"/>
-                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
                       </AuxValues>

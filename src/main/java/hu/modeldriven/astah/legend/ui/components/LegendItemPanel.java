@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.legend.ui;
+package hu.modeldriven.astah.legend.ui.components;
 
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 

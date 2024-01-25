@@ -36,6 +36,13 @@ public class LegendModel implements EventHandler<Event> {
         this.legend = new Legend();
     }
 
+    public Legend getLegend() {
+        // FIXME with a correct interpretation
+        Legend legend = new Legend();
+        legend.setStyle(new LegendStyle());
+        return legend;
+    }
+
     @Override
     public List<Class<? extends Event>> subscribedEvents() {
         return Collections.singletonList(ResetRequestedEvent.class);
