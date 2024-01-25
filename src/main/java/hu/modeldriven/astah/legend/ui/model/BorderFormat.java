@@ -11,4 +11,7 @@ public enum BorderFormat {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 }

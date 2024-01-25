@@ -54,7 +54,6 @@ public class LegendItemTableModel extends AbstractTableModel {
                 return;
             }
         }
-
     }
 
     public void moveDown(LegendItem legendItem) {
@@ -68,7 +67,6 @@ public class LegendItemTableModel extends AbstractTableModel {
                 return;
             }
         }
-        fireTableDataChanged();
     }
 
     public void reset() {

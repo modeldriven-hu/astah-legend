@@ -7,7 +7,7 @@ public class LegendStyle {
     private Color backgroundColor = Color.RED;
     private Color borderColor = Color.GREEN;
     private int borderWidth = 1;
-    private BorderStyle borderStyle = BorderStyle.DASHED;
+    private BorderType borderType = BorderType.DASHED;
 
     private BorderFormat borderFormat = BorderFormat.ROUNDED;
 
@@ -39,12 +39,12 @@ public class LegendStyle {
         this.borderWidth = borderWidth;
     }
 
-    public BorderStyle getBorderStyle() {
-        return borderStyle;
+    public BorderType getBorderType() {
+        return borderType;
     }
 
-    public void setBorderStyle(BorderStyle borderStyle) {
-        this.borderStyle = borderStyle;
+    public void setBorderType(BorderType borderType) {
+        this.borderType = borderType;
     }
 
     public BorderFormat getBorderFormat() {

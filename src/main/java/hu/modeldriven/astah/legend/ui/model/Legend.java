@@ -10,6 +10,10 @@ public class Legend {
 
     private final List<LegendItem> legendItems = new ArrayList<LegendItem>();
 
+    public Legend(){
+        this.style = new LegendStyle();
+    }
+
     public String getName() {
         return name;
     }

@@ -1,6 +1,6 @@
 package hu.modeldriven.astah.legend.ui.model;
 
-import hu.modeldriven.astah.legend.ui.event.ResetRequestedEvent;
+import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -9,10 +9,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Represents the internal state of the legend and corresponding items,
- * serving as a single source of truth of the current state
+ * The model is a view based on the incoming events. As
+ * the events arrive, we are modifying the internal state.
+ * A nicer solution would be to always recreate the internal
+ * representation making the whole system truly immutable.
  */
-public class LegendModel implements EventHandler<Event> {
+public class LegendModel implements EventHandler<Event>{
 
     private final EventBus eventBus;
 
@@ -21,25 +23,52 @@ public class LegendModel implements EventHandler<Event> {
     public LegendModel(EventBus eventBus) {
         this.eventBus = eventBus;
         this.legend = new Legend();
+        this.legend.setStyle(new LegendStyle());
     }
 
     @Override
     public void handleEvent(Event event) {
 
         if (event instanceof ResetRequestedEvent) {
-            handleResetRequested();
+            this.legend = new Legend();
+        }
+        
+        if (event instanceof LegendStyleModifiedEvent){
+            LegendStyleModifiedEvent e = (LegendStyleModifiedEvent)event;
+            this.legend.setStyle(e.getLegendStyle());
+        }
+
+        if (event instanceof LegendItemCreatedEvent){
+            LegendItemCreatedEvent e = (LegendItemCreatedEvent)event;
+            this.legend.getLegendItems().add(e.getLegendItem());
+        }
+
+        if (event instanceof LegendItemModifiedEvent){
+            LegendItemModifiedEvent e = (LegendItemModifiedEvent)event;
+
+            List<LegendItem> items = this.legend.getLegendItems();
+
+            for (int i = 0; i < items.size(); i++){
+                if (items.get(i).getId().equals(e.getLegendItem().getId())){
+                    items.set(i, e.getLegendItem());
+                    break;
+                }
+            }
+
+        }
+
+        if (event instanceof LegendItemRemovedEvent){
+            LegendItemRemovedEvent e = (LegendItemRemovedEvent)event;
+            this.legend.getLegendItems().removeIf(item -> e.getLegendItem().getId().equals(item.getId()));
+        }
+
+        if (event instanceof LegendItemReorganizedEvent){
+            LegendItemReorganizedEvent e = (LegendItemReorganizedEvent)event;
         }
 
     }
 
-    private void handleResetRequested() {
-        this.legend = new Legend();
-    }
-
     public Legend getLegend() {
-        // FIXME with a correct interpretation
-        Legend legend = new Legend();
-        legend.setStyle(new LegendStyle());
         return legend;
     }
 
