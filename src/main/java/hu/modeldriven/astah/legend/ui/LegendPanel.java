@@ -6,8 +6,6 @@ import hu.modeldriven.core.eventbus.EventBus;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LegendPanel extends AbstractLegendPanel{
 
