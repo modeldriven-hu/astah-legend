@@ -35,6 +35,17 @@ public class LegendItemTableModel extends AbstractTableModel {
     }
 
     @Override
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0: return "Id";
+            case 1: return "Legend item";
+            case 2: return "Name";
+            default:
+                return "Unknown column";
+        }
+    }
+
+    @Override
     public Object getValueAt(int row, int column) {
 
         LegendItem legendItem = legendItems.get(row);

@@ -2,11 +2,12 @@ package hu.modeldriven.astah.legend.ui;
 
 import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.astah.legend.ui.model.LegendModel;
+import hu.modeldriven.astah.legend.ui.usecase.CreateLegendItemUseCase;
+import hu.modeldriven.astah.legend.ui.usecase.UpdateTableOnLegendItemCreationUseCase;
 import hu.modeldriven.core.eventbus.EventBus;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.table.TableModel;
 import java.awt.Component;
 
 public class LegendPanel extends AbstractLegendPanel{
@@ -26,9 +27,11 @@ public class LegendPanel extends AbstractLegendPanel{
     }
 
     private void initUIComponents() {
+        initLegendPanel();
+        initLegendItemPanel();
+    }
 
-        this.legendItemTable.setModel(tableModel);
-
+    private void initLegendPanel(){
         newButton.addActionListener( e -> eventBus.publish(new ResetRequestedEvent()));
         openButton.addActionListener( e -> eventBus.publish(new OpenFileRequestedEvent()));
         saveButton.addActionListener( e -> eventBus.publish(new SaveFileRequestedEvent()));
@@ -56,8 +59,15 @@ public class LegendPanel extends AbstractLegendPanel{
         });
     }
 
+    private void initLegendItemPanel(){
+        addButton.addActionListener( e -> eventBus.publish(new AddLegendItemRequestedEvent()));
+        this.legendItemTable.setModel(tableModel);
+    }
+
     private void initUseCases() {
         eventBus.subscribe(new LegendModel(eventBus));
+        eventBus.subscribe(new CreateLegendItemUseCase(eventBus));
+        eventBus.subscribe(new UpdateTableOnLegendItemCreationUseCase(tableModel));
     }
 
 }

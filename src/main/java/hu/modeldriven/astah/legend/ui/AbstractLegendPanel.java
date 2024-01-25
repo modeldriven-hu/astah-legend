@@ -241,13 +241,13 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
+    protected javax.swing.JButton addButton;
     protected javax.swing.JButton applyLegendButton;
     private javax.swing.JToolBar.Separator buttonSeparator;
     private javax.swing.JButton configureLegendStyleButton;
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton downButton;
-    private javax.swing.JButton editButton;
+    protected javax.swing.JButton downButton;
+    protected javax.swing.JButton editButton;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -259,11 +259,11 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
     private javax.swing.JLabel legendStyleLabel;
     protected javax.swing.JButton newButton;
     protected javax.swing.JButton openButton;
-    private javax.swing.JButton removeButton;
+    protected javax.swing.JButton removeButton;
     protected javax.swing.JButton saveButton;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JToolBar toolBar;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JButton upButton;
+    protected javax.swing.JButton upButton;
     // End of variables declaration//GEN-END:variables
 }

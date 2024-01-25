@@ -4,6 +4,8 @@ import hu.modeldriven.astah.legend.ui.AbstractLegendPanel;
 
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import hu.modeldriven.astah.legend.ui.LegendPanel;
+import hu.modeldriven.core.eventbus.EventBus;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -47,7 +49,9 @@ public class TestFrame {
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new AbstractLegendPanel();
+        EventBus eventBus = new EventBus();
+
+        JPanel panel = new LegendPanel(frame, eventBus);
 
         frame.getContentPane().add(panel, BorderLayout.NORTH);
     }

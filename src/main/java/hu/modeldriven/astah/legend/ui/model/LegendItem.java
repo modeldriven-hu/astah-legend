@@ -17,6 +17,7 @@ public class LegendItem {
 
     public LegendItem(){
         this.id = UUID.randomUUID().toString();
+        this.name = "Item";
     }
 
     public String getId() {
