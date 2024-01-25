@@ -4,6 +4,7 @@ import hu.modeldriven.astah.legend.ui.model.LegendItem;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LegendItemTableModel extends AbstractTableModel {
@@ -21,6 +22,34 @@ public class LegendItemTableModel extends AbstractTableModel {
 
     public void removeLegendItem(LegendItem legendItem){
         this.legendItems.removeIf(item -> item.getId().equals(legendItem.getId()));
+        fireTableDataChanged();
+    }
+
+    public void moveUp(LegendItem legendItem){
+
+        for (int currentRow = 0; currentRow < legendItems.size(); currentRow++){
+            LegendItem item = legendItems.get(currentRow);
+
+            if (item.getId().equals(legendItem.getId()) && currentRow > 0){
+                Collections.swap(legendItems,currentRow, currentRow - 1);
+                fireTableDataChanged();
+                return;
+            }
+        }
+
+    }
+
+    public void moveDown(LegendItem legendItem){
+
+        for (int currentRow = 0; currentRow < legendItems.size(); currentRow++){
+            LegendItem item = legendItems.get(currentRow);
+
+            if (item.getId().equals(legendItem.getId()) && currentRow < legendItems.size() - 1){
+                Collections.swap(legendItems,currentRow, currentRow + 1);
+                fireTableDataChanged();
+                return;
+            }
+        }
         fireTableDataChanged();
     }
 

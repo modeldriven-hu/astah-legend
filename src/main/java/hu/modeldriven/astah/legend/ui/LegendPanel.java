@@ -69,6 +69,20 @@ public class LegendPanel extends AbstractLegendPanel{
             }
         });
 
+        upButton.addActionListener(e ->{
+            if (legendItemTable.getSelectedRowCount() == 1){
+                LegendItem item = tableModel.getRow(legendItemTable.getSelectedRow());
+                eventBus.publish(new ReorganizeLegendItemRequestedEvent(item, ReorganizeLegendItemRequestedEvent.Direction.UP));
+            }
+        });
+
+        downButton.addActionListener(e ->{
+            if (legendItemTable.getSelectedRowCount() == 1){
+                LegendItem item = tableModel.getRow(legendItemTable.getSelectedRow());
+                eventBus.publish(new ReorganizeLegendItemRequestedEvent(item, ReorganizeLegendItemRequestedEvent.Direction.DOWN));
+            }
+        });
+
         this.legendItemTable.setModel(tableModel);
     }
 
@@ -79,6 +93,7 @@ public class LegendPanel extends AbstractLegendPanel{
         eventBus.subscribe(new ClearLegendNameUseCase(legendNameTextField));
         eventBus.subscribe(new ClearLegendItemsTableUseCase(tableModel));
         eventBus.subscribe(new RemoveLegendItemUseCase(tableModel));
+        eventBus.subscribe(new ReorganizeLegendItemUseCase(tableModel));
     }
 
 }
