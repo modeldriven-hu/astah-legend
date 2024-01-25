@@ -6,7 +6,6 @@ import hu.modeldriven.astah.legend.ui.components.AbstractMigLegendStylePanel;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 public class TestLegendStylePanel {
     private JFrame frame;
@@ -41,13 +40,13 @@ public class TestLegendStylePanel {
      */
     protected void initialize() {
         frame = new JFrame("Simple HTML Text Editor");
-        frame.setMinimumSize(new Dimension(763, 300));
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new AbstractMigLegendStylePanel();
-
-        frame.getContentPane().add(panel, BorderLayout.NORTH);
+        frame.getContentPane().setLayout(new BorderLayout());
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        frame.pack();
     }
 
 }

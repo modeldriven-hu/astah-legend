@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.util.function.Consumer;
 
-public class LegendStylePanel extends AbstractLegendStylePanel {
+public class LegendStylePanel extends AbstractMigLegendStylePanel {
 
     private final LegendStyleDialog parent;
     private final Consumer<LegendStyle> callback;
@@ -64,7 +64,7 @@ public class LegendStylePanel extends AbstractLegendStylePanel {
         this.legendStyle = legendStyle;
         this.backgroundColorPanel.setBackground(legendStyle.getBackgroundColor());
         this.borderColorPanel.setBackground(legendStyle.getBorderColor());
-        this.borderWidthTextField.setValue(legendStyle.getBorderWidth());
+        this.borderWidthTextField.setText(String.valueOf(legendStyle.getBorderWidth()));
 
         for (int i = 0; i < borderTypeComboBox.getItemCount(); i++) {
             if (borderTypeComboBox.getItemAt(i)

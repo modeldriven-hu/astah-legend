@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.util.function.Consumer;
 
-public class LegendItemPanel extends AbstractLegendItemPanel {
+public class LegendItemPanel extends AbstractMigLegendItemPanel {
 
     private final LegendItemDialog parent;
     private final Consumer<LegendItem> callback;

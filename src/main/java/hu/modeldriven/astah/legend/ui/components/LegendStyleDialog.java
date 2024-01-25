@@ -20,9 +20,6 @@ public class LegendStyleDialog extends JDialog {
     private void initUIComponents() {
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(contentPanel, BorderLayout.CENTER);
-
-        setPreferredSize(new Dimension(450, 450));
-
         this.setModal(true);
         this.pack();
     }

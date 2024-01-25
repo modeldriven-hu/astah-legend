@@ -7,14 +7,18 @@ import java.awt.*;
 
 public class AbstractMigLegendStylePanel extends JPanel {
 
-    private Font labelFont = new Font("Segoe UI Light", Font.PLAIN, 18);
+    //private Font labelFont = new Font("Segoe UI Light", Font.PLAIN, 18);
 
     public AbstractMigLegendStylePanel(){
         super();
-        setLayout(new BorderLayout());
+
+        Font labelFont = getFont();
+
+        setLayout(new MigLayout("fillx, hidemode 3",
+                "[fill]",
+                "[][][]"));
 
         infoPanel = new JPanel(new MigLayout("","","[]20[]"));
-        infoPanel.setPreferredSize(new Dimension(500, 80));
         infoPanel.setBackground(Color.WHITE);
 
         JLabel headerLabel = new JLabel("Legend style");
@@ -25,7 +29,7 @@ public class AbstractMigLegendStylePanel extends JPanel {
         additionalInfoLabel.setFont(labelFont);
         infoPanel.add(additionalInfoLabel);
 
-        add(infoPanel, BorderLayout.NORTH);
+        add(infoPanel, "cell 0 0");
 
         contentPanel = new JPanel(new MigLayout(
                 "hidemode 3",
@@ -48,7 +52,7 @@ public class AbstractMigLegendStylePanel extends JPanel {
         contentPanel.add(label1, "cell 0 0");
 
         backgroundColorPanel = new JPanel();
-        backgroundColorPanel.setPreferredSize(new Dimension(120, 32));
+        backgroundColorPanel.setPreferredSize(new Dimension(120, 20));
         backgroundColorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         contentPanel.add(backgroundColorPanel, "cell 1 0");
 
@@ -60,7 +64,7 @@ public class AbstractMigLegendStylePanel extends JPanel {
         contentPanel.add(label2, "cell 0 1");
 
         borderColorPanel = new JPanel();
-        borderColorPanel.setPreferredSize(new Dimension(120, 32));
+        borderColorPanel.setPreferredSize(new Dimension(120, 20));
         borderColorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         contentPanel.add(borderColorPanel, "cell 1 1");
 
@@ -72,7 +76,6 @@ public class AbstractMigLegendStylePanel extends JPanel {
         contentPanel.add(label3, "cell 0 2");
 
         borderWidthTextField = new JTextField();
-        borderWidthTextField.setPreferredSize(new Dimension(120, 32));
         contentPanel.add(borderWidthTextField, "cell 1 2");
 
         JLabel label4 = new JLabel("px");
@@ -98,16 +101,23 @@ public class AbstractMigLegendStylePanel extends JPanel {
         borderFormatComboBox.addItem("Rounded rectangle");
         contentPanel.add(borderFormatComboBox, "cell 1 4 2 1");
 
-        add(contentPanel, BorderLayout.CENTER);
+        add(contentPanel, "cell 0 1");
 
-        buttonPanel = new JPanel(new MigLayout());
-        buttonPanel.setPreferredSize(new Dimension(500, 50));
-        add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel = new JPanel(new MigLayout("hidemode 3, alignx trailing",
+                "[fill][fill]",
+                "[]"));
+
+        cancelButton = new JButton("Cancel");
+        buttonPanel.add(cancelButton, "cell 0 0");
+
+        okButton = new JButton("OK");
+        buttonPanel.add(okButton, "cell 1 0");
+
+        add(buttonPanel, "cell 0 2");
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setPreferredSize(new Dimension(500, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(BorderLayout.CENTER, new AbstractMigLegendStylePanel());
