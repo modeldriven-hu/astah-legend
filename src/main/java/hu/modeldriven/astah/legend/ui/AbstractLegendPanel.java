@@ -49,7 +49,7 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         editButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        legendItemTable = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -196,20 +196,23 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        legendItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Legend item", "Name"
+                "Id", "Legend item", "Name"
             }
         ));
-        scrollPane.setViewportView(table);
-        if (table.getColumnModel().getColumnCount() > 0) {
-            table.getColumnModel().getColumn(0).setPreferredWidth(50);
+        legendItemTable.setColumnSelectionAllowed(true);
+        legendItemTable.getTableHeader().setReorderingAllowed(false);
+        scrollPane.setViewportView(legendItemTable);
+        legendItemTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (legendItemTable.getColumnModel().getColumnCount() > 0) {
+            legendItemTable.getColumnModel().getColumn(1).setPreferredWidth(50);
         }
 
         jPanel4.add(scrollPane, java.awt.BorderLayout.CENTER);
@@ -249,6 +252,7 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel legendItemPanel;
+    protected javax.swing.JTable legendItemTable;
     private javax.swing.JLabel legendNameLabel;
     protected javax.swing.JTextField legendNameTextField;
     private javax.swing.JPanel legendPanel;
@@ -258,7 +262,6 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
     private javax.swing.JButton removeButton;
     protected javax.swing.JButton saveButton;
     private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
     private javax.swing.JPanel topPanel;
     private javax.swing.JButton upButton;
