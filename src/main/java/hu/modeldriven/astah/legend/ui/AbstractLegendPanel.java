@@ -30,17 +30,17 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         toolBar = new javax.swing.JToolBar();
         newButton = new javax.swing.JButton();
         openButton = new javax.swing.JButton();
-        saveAsButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
         buttonSeparator = new javax.swing.JToolBar.Separator();
-        applyDiagramButton = new javax.swing.JButton();
+        applyLegendButton = new javax.swing.JButton();
         contentPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        legendPanel = new javax.swing.JPanel();
         legendNameLabel = new javax.swing.JLabel();
         legendNameTextField = new javax.swing.JTextField();
         legendStyleLabel = new javax.swing.JLabel();
         configureLegendStyleButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        legendItemPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         upButton = new javax.swing.JButton();
         downButton = new javax.swing.JButton();
@@ -76,23 +76,23 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         openButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(openButton);
 
-        saveAsButton.setText("Save as ...");
-        saveAsButton.setFocusable(false);
-        saveAsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        saveAsButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(saveAsButton);
+        saveButton.setText("Save");
+        saveButton.setFocusable(false);
+        saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        saveButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(saveButton);
         toolBar.add(buttonSeparator);
 
-        applyDiagramButton.setText("Apply on diagram");
-        applyDiagramButton.setFocusable(false);
-        applyDiagramButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        applyDiagramButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        applyDiagramButton.addActionListener(new java.awt.event.ActionListener() {
+        applyLegendButton.setText("Apply on diagram");
+        applyLegendButton.setFocusable(false);
+        applyLegendButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        applyLegendButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        applyLegendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyDiagramButtonActionPerformed(evt);
+                applyLegendButtonActionPerformed(evt);
             }
         });
-        toolBar.add(applyDiagramButton);
+        toolBar.add(applyLegendButton);
 
         topPanel.add(toolBar, java.awt.BorderLayout.CENTER);
 
@@ -100,7 +100,7 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         contentPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        legendPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         legendNameLabel.setText("Name:");
 
@@ -108,41 +108,41 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         configureLegendStyleButton.setText("Configure...");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout legendPanelLayout = new javax.swing.GroupLayout(legendPanel);
+        legendPanel.setLayout(legendPanelLayout);
+        legendPanelLayout.setHorizontalGroup(
+            legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(legendPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(legendNameLabel)
                     .addComponent(legendStyleLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(legendPanelLayout.createSequentialGroup()
                         .addComponent(legendNameTextField)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(legendPanelLayout.createSequentialGroup()
                         .addComponent(configureLegendStyleButton)
                         .addContainerGap(818, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        legendPanelLayout.setVerticalGroup(
+            legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(legendPanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(legendNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(legendNameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(configureLegendStyleButton)
                     .addComponent(legendStyleLabel))
                 .addContainerGap(245, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Legend", jPanel1);
+        jTabbedPane1.addTab("Legend", legendPanel);
 
-        jPanel2.setLayout(new java.awt.BorderLayout());
+        legendItemPanel.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1005, 50));
@@ -192,7 +192,7 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel3, java.awt.BorderLayout.NORTH);
+        legendItemPanel.add(jPanel3, java.awt.BorderLayout.NORTH);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
 
@@ -214,9 +214,9 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         jPanel4.add(scrollPane, java.awt.BorderLayout.CENTER);
 
-        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+        legendItemPanel.add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jTabbedPane1.addTab("Legend items", jPanel2);
+        jTabbedPane1.addTab("Legend items", legendItemPanel);
 
         contentPanel.add(jTabbedPane1, java.awt.BorderLayout.CENTER);
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
@@ -232,31 +232,31 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_removeButtonActionPerformed
 
-    private void applyDiagramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyDiagramButtonActionPerformed
+    private void applyLegendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyLegendButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_applyDiagramButtonActionPerformed
+    }//GEN-LAST:event_applyLegendButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    protected javax.swing.JButton applyDiagramButton;
+    protected javax.swing.JButton applyLegendButton;
     private javax.swing.JToolBar.Separator buttonSeparator;
     private javax.swing.JButton configureLegendStyleButton;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton downButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel legendItemPanel;
     private javax.swing.JLabel legendNameLabel;
-    private javax.swing.JTextField legendNameTextField;
+    protected javax.swing.JTextField legendNameTextField;
+    private javax.swing.JPanel legendPanel;
     private javax.swing.JLabel legendStyleLabel;
     protected javax.swing.JButton newButton;
     protected javax.swing.JButton openButton;
     private javax.swing.JButton removeButton;
-    protected javax.swing.JButton saveAsButton;
+    protected javax.swing.JButton saveButton;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTable table;
     private javax.swing.JToolBar toolBar;
