@@ -6,6 +6,7 @@ import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,6 +39,6 @@ public class LegendModel implements EventHandler<Event> {
 
     @Override
     public List<Class<? extends Event>> subscribedEvents() {
-        return Arrays.asList(ResetRequestedEvent.class);
+        return Collections.singletonList(ResetRequestedEvent.class);
     }
 }

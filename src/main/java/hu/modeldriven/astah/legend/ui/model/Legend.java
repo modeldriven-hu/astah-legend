@@ -8,7 +8,7 @@ public class Legend {
     private String name;
     private LegendStyle style;
 
-    private List<LegendItem> legendItems = new ArrayList<LegendItem>();
+    private final List<LegendItem> legendItems = new ArrayList<LegendItem>();
 
     public String getName() {
         return name;

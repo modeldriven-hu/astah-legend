@@ -8,6 +8,7 @@ import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CreateLegendItemUseCase implements EventHandler<AddLegendItemRequestedEvent> {
@@ -25,6 +26,6 @@ public class CreateLegendItemUseCase implements EventHandler<AddLegendItemReques
 
     @Override
     public List<Class<? extends Event>> subscribedEvents() {
-        return Arrays.asList(AddLegendItemRequestedEvent.class);
+        return Collections.singletonList(AddLegendItemRequestedEvent.class);
     }
 }

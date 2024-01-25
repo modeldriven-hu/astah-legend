@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LegendItemTableModel extends AbstractTableModel {
 
-    private List<LegendItem> legendItems;
+    private final List<LegendItem> legendItems;
 
     public LegendItemTableModel(){
         this.legendItems = new ArrayList<>();
@@ -19,9 +19,18 @@ public class LegendItemTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
+    public void removeLegendItem(LegendItem legendItem){
+        this.legendItems.removeIf(item -> item.getId().equals(legendItem.getId()));
+        fireTableDataChanged();
+    }
+
     public void reset(){
         this.legendItems.clear();
         fireTableDataChanged();
+    }
+
+    public LegendItem getRow(int row){
+        return this.legendItems.get(row);
     }
 
     @Override

@@ -45,8 +45,8 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         upButton = new javax.swing.JButton();
         downButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
-        removeButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
         legendItemTable = new javax.swing.JTable();
@@ -153,14 +153,14 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         addButton.setText("Add");
 
-        removeButton.setText("Edit...");
-        removeButton.addActionListener(new java.awt.event.ActionListener() {
+        editButton.setText("Edit...");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeButtonActionPerformed(evt);
+                editButtonActionPerformed(evt);
             }
         });
 
-        editButton.setText("Remove");
+        removeButton.setText("Remove");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -174,9 +174,9 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editButton)
                 .addContainerGap(516, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -184,8 +184,8 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editButton)
                     .addComponent(removeButton)
+                    .addComponent(editButton)
                     .addComponent(addButton)
                     .addComponent(downButton)
                     .addComponent(upButton))
@@ -207,7 +207,6 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
                 "Id", "Legend item", "Name"
             }
         ));
-        legendItemTable.setColumnSelectionAllowed(true);
         legendItemTable.getTableHeader().setReorderingAllowed(false);
         scrollPane.setViewportView(legendItemTable);
         legendItemTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -231,9 +230,9 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_newButtonActionPerformed
 
-    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removeButtonActionPerformed
+    }//GEN-LAST:event_editButtonActionPerformed
 
     private void applyLegendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyLegendButtonActionPerformed
         // TODO add your handling code here:
