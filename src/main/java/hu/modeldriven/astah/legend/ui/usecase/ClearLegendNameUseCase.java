@@ -12,7 +12,7 @@ public class ClearLegendNameUseCase implements EventHandler<ResetRequestedEvent>
 
     private final JTextField textField;
 
-    public ClearLegendNameUseCase(JTextField textField){
+    public ClearLegendNameUseCase(JTextField textField) {
         this.textField = textField;
     }
 

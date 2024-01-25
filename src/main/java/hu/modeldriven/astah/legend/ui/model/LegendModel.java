@@ -5,7 +5,6 @@ import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class LegendModel implements EventHandler<Event> {
 
     private Legend legend;
 
-    public LegendModel(EventBus eventBus){
+    public LegendModel(EventBus eventBus) {
         this.eventBus = eventBus;
         this.legend = new Legend();
     }
@@ -27,13 +26,13 @@ public class LegendModel implements EventHandler<Event> {
     @Override
     public void handleEvent(Event event) {
 
-        if (event instanceof ResetRequestedEvent){
+        if (event instanceof ResetRequestedEvent) {
             handleResetRequested();
         }
 
     }
 
-    private void handleResetRequested(){
+    private void handleResetRequested() {
         this.legend = new Legend();
     }
 

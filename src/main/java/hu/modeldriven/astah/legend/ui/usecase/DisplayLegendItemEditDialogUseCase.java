@@ -2,6 +2,7 @@ package hu.modeldriven.astah.legend.ui.usecase;
 
 import hu.modeldriven.astah.legend.ui.LegendItemDialog;
 import hu.modeldriven.astah.legend.ui.event.EditLegendItemRequestedEvent;
+import hu.modeldriven.astah.legend.ui.event.LegendItemModifiedEvent;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -13,13 +14,16 @@ public class DisplayLegendItemEditDialogUseCase implements EventHandler<EditLege
 
     private final EventBus eventBus;
 
-    public DisplayLegendItemEditDialogUseCase(EventBus eventBus){
+    public DisplayLegendItemEditDialogUseCase(EventBus eventBus) {
         this.eventBus = eventBus;
     }
 
     @Override
     public void handleEvent(EditLegendItemRequestedEvent event) {
-        LegendItemDialog dialog = new LegendItemDialog();
+        LegendItemDialog dialog = new LegendItemDialog(legendItem -> {
+            eventBus.publish(new LegendItemModifiedEvent(legendItem));
+        });
+
         dialog.setLegendItem(event.getLegendItem());
         dialog.setVisible(true);
     }

@@ -7,7 +7,6 @@ import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class CreateLegendItemUseCase implements EventHandler<AddLegendItemReques
 
     private final EventBus eventBus;
 
-    public CreateLegendItemUseCase(EventBus eventBus){
+    public CreateLegendItemUseCase(EventBus eventBus) {
         this.eventBus = eventBus;
     }
 

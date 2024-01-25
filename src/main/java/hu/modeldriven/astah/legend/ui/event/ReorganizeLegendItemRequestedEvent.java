@@ -1,6 +1,5 @@
 package hu.modeldriven.astah.legend.ui.event;
 
-import hu.modeldriven.astah.legend.ui.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.core.eventbus.Event;
 

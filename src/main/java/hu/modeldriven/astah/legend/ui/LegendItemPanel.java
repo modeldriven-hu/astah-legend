@@ -4,16 +4,18 @@ import hu.modeldriven.astah.legend.ui.model.LegendItem;
 
 import javax.swing.*;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import java.util.function.Consumer;
 
-public class LegendItemPanel extends AbstractLegendItemPanel{
+public class LegendItemPanel extends AbstractLegendItemPanel {
 
-    private LegendItemDialog parent;
+    private final LegendItemDialog parent;
+    private final Consumer<LegendItem> callback;
     private LegendItem legendItem;
 
-    public LegendItemPanel(LegendItemDialog parent){
+    public LegendItemPanel(LegendItemDialog parent, Consumer<LegendItem> callback) {
         super();
         this.parent = parent;
+        this.callback = callback;
         initUIComponents();
     }
 
@@ -23,11 +25,10 @@ public class LegendItemPanel extends AbstractLegendItemPanel{
             Color newColor = JColorChooser.showDialog(
                     LegendItemPanel.this,
                     "Choose Background Color",
-                    legendItem.getBackgroundColor());
+                    backgroundColorPanel.getBackground());
 
-            if (newColor != null){
+            if (newColor != null) {
                 this.backgroundColorPanel.setBackground(newColor);
-                legendItem.setBackgroundColor(newColor);
             }
         });
 
@@ -35,15 +36,24 @@ public class LegendItemPanel extends AbstractLegendItemPanel{
             Color newColor = JColorChooser.showDialog(
                     LegendItemPanel.this,
                     "Choose Text Color",
-                    legendItem.getTextColor());
+                    textColorPanel.getBackground());
 
-            if (newColor != null){
+            if (newColor != null) {
                 this.textColorPanel.setBackground(newColor);
-                legendItem.setTextColor(newColor);
             }
         });
 
         okButton.addActionListener(actionEvent -> {
+
+            LegendItem item = new LegendItem(
+                    legendItem.getId(),
+                    nameField.getText(),
+                    backgroundColorPanel.getBackground(),
+                    textColorPanel.getBackground(),
+                    scriptTextField.getText()
+            );
+
+            callback.accept(item);
 
             parent.dispose();
         });

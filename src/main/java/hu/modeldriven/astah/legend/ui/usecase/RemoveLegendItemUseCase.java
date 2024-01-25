@@ -1,8 +1,7 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import hu.modeldriven.astah.legend.ui.LegendItemTableModel;
+import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.event.RemoveLegendItemRequestedEvent;
-import hu.modeldriven.astah.legend.ui.model.Legend;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventHandler;
 
@@ -13,7 +12,7 @@ public class RemoveLegendItemUseCase implements EventHandler<RemoveLegendItemReq
 
     private final LegendItemTableModel tableModel;
 
-    public RemoveLegendItemUseCase(LegendItemTableModel tableModel){
+    public RemoveLegendItemUseCase(LegendItemTableModel tableModel) {
         this.tableModel = tableModel;
     }
 

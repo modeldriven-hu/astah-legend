@@ -4,14 +4,15 @@ import hu.modeldriven.astah.legend.ui.model.LegendItem;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.util.function.Consumer;
 
 public class LegendItemDialog extends JDialog {
 
     private final LegendItemPanel contentPanel;
 
-    public LegendItemDialog(){
+    public LegendItemDialog(Consumer<LegendItem> consumer) {
         super();
-        this.contentPanel = new LegendItemPanel(this);
+        this.contentPanel = new LegendItemPanel(this, consumer);
         initUIComponents();
     }
 

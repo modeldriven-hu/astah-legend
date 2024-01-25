@@ -1,6 +1,6 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import hu.modeldriven.astah.legend.ui.LegendItemTableModel;
+import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.event.ReorganizeLegendItemRequestedEvent;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -12,13 +12,13 @@ public class ReorganizeLegendItemUseCase implements EventHandler<ReorganizeLegen
 
     private final LegendItemTableModel tableModel;
 
-    public ReorganizeLegendItemUseCase(LegendItemTableModel tableModel){
+    public ReorganizeLegendItemUseCase(LegendItemTableModel tableModel) {
         this.tableModel = tableModel;
     }
 
     @Override
     public void handleEvent(ReorganizeLegendItemRequestedEvent event) {
-        if (event.getDirection().equals(ReorganizeLegendItemRequestedEvent.Direction.UP)){
+        if (event.getDirection().equals(ReorganizeLegendItemRequestedEvent.Direction.UP)) {
             tableModel.moveUp(event.getLegendItem());
         } else {
             tableModel.moveDown(event.getLegendItem());

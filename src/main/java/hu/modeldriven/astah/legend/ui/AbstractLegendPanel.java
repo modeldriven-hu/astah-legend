@@ -5,7 +5,6 @@
 package hu.modeldriven.astah.legend.ui;
 
 /**
- *
  * @author zsolt
  */
 public class AbstractLegendPanel extends javax.swing.JPanel {
@@ -111,33 +110,33 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout legendPanelLayout = new javax.swing.GroupLayout(legendPanel);
         legendPanel.setLayout(legendPanelLayout);
         legendPanelLayout.setHorizontalGroup(
-            legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(legendPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(legendNameLabel)
-                    .addComponent(legendStyleLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(legendPanelLayout.createSequentialGroup()
-                        .addComponent(legendNameTextField)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(legendPanelLayout.createSequentialGroup()
-                        .addComponent(configureLegendStyleButton)
-                        .addContainerGap(818, Short.MAX_VALUE))))
+                legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(legendPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(legendNameLabel)
+                                        .addComponent(legendStyleLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(legendPanelLayout.createSequentialGroup()
+                                                .addComponent(legendNameTextField)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(legendPanelLayout.createSequentialGroup()
+                                                .addComponent(configureLegendStyleButton)
+                                                .addContainerGap(818, Short.MAX_VALUE))))
         );
         legendPanelLayout.setVerticalGroup(
-            legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(legendPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(legendNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(legendNameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(configureLegendStyleButton)
-                    .addComponent(legendStyleLabel))
-                .addContainerGap(245, Short.MAX_VALUE))
+                legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(legendPanelLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(legendNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(legendNameLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(legendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(configureLegendStyleButton)
+                                        .addComponent(legendStyleLabel))
+                                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Legend", legendPanel);
@@ -165,31 +164,31 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(upButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(downButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(removeButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editButton)
-                .addContainerGap(516, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(upButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(downButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editButton)
+                                .addContainerGap(516, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeButton)
-                    .addComponent(editButton)
-                    .addComponent(addButton)
-                    .addComponent(downButton)
-                    .addComponent(upButton))
-                .addContainerGap())
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(removeButton)
+                                        .addComponent(editButton)
+                                        .addComponent(addButton)
+                                        .addComponent(downButton)
+                                        .addComponent(upButton))
+                                .addContainerGap())
         );
 
         legendItemPanel.add(jPanel3, java.awt.BorderLayout.NORTH);
@@ -197,15 +196,15 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         legendItemTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Id", "Legend item", "Name"
-            }
+                new Object[][]{
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null}
+                },
+                new String[]{
+                        "Id", "Legend item", "Name"
+                }
         ));
         legendItemTable.getTableHeader().setReorderingAllowed(false);
         scrollPane.setViewportView(legendItemTable);

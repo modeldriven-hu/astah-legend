@@ -11,7 +11,7 @@ public class LegendStyle {
 
     private BorderFormat borderFormat = BorderFormat.ROUNDED;
 
-    public LegendStyle(){
+    public LegendStyle() {
 
     }
 

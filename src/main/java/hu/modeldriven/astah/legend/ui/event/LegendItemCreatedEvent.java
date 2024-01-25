@@ -7,7 +7,7 @@ public class LegendItemCreatedEvent implements Event {
 
     private final LegendItem legendItem;
 
-    public LegendItemCreatedEvent(LegendItem item){
+    public LegendItemCreatedEvent(LegendItem item) {
         this.legendItem = item;
     }
 

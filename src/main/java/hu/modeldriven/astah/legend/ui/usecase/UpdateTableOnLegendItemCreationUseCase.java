@@ -1,6 +1,6 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import hu.modeldriven.astah.legend.ui.LegendItemTableModel;
+import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.event.LegendItemCreatedEvent;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -12,7 +12,7 @@ public class UpdateTableOnLegendItemCreationUseCase implements EventHandler<Lege
 
     private final LegendItemTableModel tableModel;
 
-    public UpdateTableOnLegendItemCreationUseCase(LegendItemTableModel tableModel){
+    public UpdateTableOnLegendItemCreationUseCase(LegendItemTableModel tableModel) {
         this.tableModel = tableModel;
     }
 
