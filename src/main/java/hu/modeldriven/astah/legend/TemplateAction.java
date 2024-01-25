@@ -21,11 +21,7 @@ public class TemplateAction implements IPluginActionDelegate {
 	    try {
 	        AstahAPI api = AstahAPI.getAstahAPI();
 	        ProjectAccessor projectAccessor = api.getProjectAccessor();
-			IDiagram diagram = projectAccessor.getViewManager().getDiagramViewManager().getCurrentDiagram();
-
-			BlockDefinitionDiagramEditor editor = projectAccessor.getDiagramEditorFactory().getClassDiagramEditor();
-			editor.setDiagram(diagram);
-			editor.createRect(new Point2D.Double(10,10),30,30);
+			projectAccessor.getProject();
 
 	        JOptionPane.showMessageDialog(window.getParent(),"Hello");
 	    } catch (ProjectNotFoundException e) {
