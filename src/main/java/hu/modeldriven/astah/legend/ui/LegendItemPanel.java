@@ -8,10 +8,12 @@ import java.awt.event.ActionListener;
 
 public class LegendItemPanel extends AbstractLegendItemPanel{
 
+    private LegendItemDialog parent;
     private LegendItem legendItem;
 
-    public LegendItemPanel(){
+    public LegendItemPanel(LegendItemDialog parent){
         super();
+        this.parent = parent;
         initUIComponents();
     }
 
@@ -42,11 +44,12 @@ public class LegendItemPanel extends AbstractLegendItemPanel{
         });
 
         okButton.addActionListener(actionEvent -> {
-            System.out.println("Ok pressed");
+
+            parent.dispose();
         });
 
         cancelButton.addActionListener(actionEvent -> {
-            System.out.println("Cancel pressed");
+            parent.dispose();
         });
     }
 

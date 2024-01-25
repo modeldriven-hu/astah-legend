@@ -19,7 +19,8 @@ public class DisplayLegendItemEditDialogUseCase implements EventHandler<EditLege
 
     @Override
     public void handleEvent(EditLegendItemRequestedEvent event) {
-        LegendItemDialog dialog = new LegendItemDialog(event.getLegendItem());
+        LegendItemDialog dialog = new LegendItemDialog();
+        dialog.setLegendItem(event.getLegendItem());
         dialog.setVisible(true);
     }
 

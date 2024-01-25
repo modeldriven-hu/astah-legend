@@ -9,21 +9,22 @@ public class LegendItemDialog extends JDialog {
 
     private final LegendItemPanel contentPanel;
 
-    public LegendItemDialog(LegendItem legendItem){
+    public LegendItemDialog(){
         super();
-        this.contentPanel = new LegendItemPanel();
-        initUIComponents(legendItem);
+        this.contentPanel = new LegendItemPanel(this);
+        initUIComponents();
     }
 
-    private void initUIComponents(LegendItem legendItem) {
-
-        contentPanel.setLegendItem(legendItem);
-
+    private void initUIComponents() {
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(contentPanel, BorderLayout.CENTER);
 
         this.setModal(true);
         this.pack();
+    }
+
+    public void setLegendItem(LegendItem legendItem) {
+        contentPanel.setLegendItem(legendItem);
     }
 
 }
