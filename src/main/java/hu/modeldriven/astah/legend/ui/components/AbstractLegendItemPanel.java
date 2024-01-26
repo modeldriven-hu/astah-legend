@@ -6,6 +6,7 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -86,7 +87,16 @@ public class AbstractLegendItemPanel extends JPanel {
         label3.setFont(labelFont);
         contentPanel.add(label3, "cell 0 3");
 
+        // https://github.com/bobbylight/RSyntaxTextArea/issues/269
+        JTextComponent.removeKeymap("RTextAreaKeymap");
+
         scriptTextArea = new RSyntaxTextArea();
+
+        UIManager.put("RSyntaxTextAreaUI.actionMap", null);
+        UIManager.put("RSyntaxTextAreaUI.inputMap", null);
+        UIManager.put("RTextAreaUI.actionMap", null);
+        UIManager.put("RTextAreaUI.inputMap", null);
+
         scriptTextArea.setColumns(40);
         scriptTextArea.setRows(10);
         scriptTextArea.setCodeFoldingEnabled(true);

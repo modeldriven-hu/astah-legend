@@ -1,8 +1,6 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
 import com.change_vision.jude.api.inf.AstahAPI;
-import com.change_vision.jude.api.inf.exception.InvalidEditingException;
-import com.change_vision.jude.api.inf.exception.InvalidUsingException;
 import com.change_vision.jude.api.inf.model.IDiagram;
 import com.change_vision.jude.api.inf.presentation.IPresentation;
 import com.change_vision.jude.api.inf.presentation.PresentationPropertyConstants.Key;
@@ -15,6 +13,8 @@ import hu.modeldriven.astah.legend.ui.model.impl.HexColor;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
+import hu.modeldriven.core.groovy.GroovyScriptExecutor;
+import hu.modeldriven.core.groovy.ScriptExecutionException;
 
 import javax.swing.*;
 import java.util.Collections;
@@ -23,9 +23,11 @@ import java.util.List;
 public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
 
     private final EventBus eventBus;
+    private final GroovyScriptExecutor executor;
 
     public ApplyLegendToDiagramUseCase(EventBus eventBus) {
         this.eventBus = eventBus;
+        this.executor = new GroovyScriptExecutor();
     }
 
     @Override
@@ -35,7 +37,9 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
 
             if (diagram == null) {
 
-                JOptionPane.showMessageDialog(null,"Please open the diagram!","Information",
+                JOptionPane.showMessageDialog(null,
+                        "Please open the diagram!",
+                        "Information",
                         JOptionPane.INFORMATION_MESSAGE);
 
                 return;
@@ -56,9 +60,13 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
         }
     }
 
-    private void applyLegendOnDiagram(IDiagram diagram, Legend legend) throws InvalidUsingException, InvalidEditingException {
+    private void applyLegendOnDiagram(IDiagram diagram, Legend legend) throws Exception {
 
         for (IPresentation presentation : diagram.getPresentations()) {
+
+            if (presentation == null){
+                continue;
+            }
 
             for (LegendItem legendItem : legend.getLegendItems()){
 
@@ -77,9 +85,19 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
         }
     }
 
-    public boolean isMatching(IPresentation presentation, LegendItem legendItem){
-        // FIXME run groovy code to validate
-        return true;
+    public boolean isMatching(IPresentation presentation, LegendItem legendItem) throws Exception {
+
+        System.err.println("IsMatching is called for " + presentation + " and " + legendItem.getName());
+
+        Object value = executor.execute(legendItem.getScript(), "presentation", presentation);
+
+        System.err.println("Value was " + value);
+
+        if (value instanceof Boolean) {
+            return ((Boolean) value).booleanValue();
+        }
+
+        return false;
     }
 
     IDiagram getCurrentDiagram() throws Exception {
