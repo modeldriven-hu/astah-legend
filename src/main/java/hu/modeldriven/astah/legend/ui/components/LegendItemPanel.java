@@ -50,7 +50,7 @@ public class LegendItemPanel extends AbstractMigLegendItemPanel {
                     nameField.getText(),
                     backgroundColorPanel.getBackground(),
                     textColorPanel.getBackground(),
-                    scriptTextField.getText()
+                    scriptTextArea.getText()
             );
 
             callback.accept(item);
@@ -68,6 +68,6 @@ public class LegendItemPanel extends AbstractMigLegendItemPanel {
         this.nameField.setText(legendItem.getName());
         this.backgroundColorPanel.setBackground(legendItem.getBackgroundColor());
         this.textColorPanel.setBackground(legendItem.getTextColor());
-        this.scriptTextField.setText(legendItem.getScript());
+        this.scriptTextArea.setText(legendItem.getScript());
     }
 }

@@ -10,6 +10,9 @@
         <astah.path>/usr/lib/astah_sysml</astah.path>
         <flatlaf.version>2.0.1</flatlaf.version>
         <ikonli.version>2.6.0</ikonli.version>
+        <miglayout.version>3.7.4</miglayout.version>
+        <rsyntaxtextarea.version>3.3.4</rsyntaxtextarea.version>
+        <osgi.version>4.2.0</osgi.version>
     </properties>
     <modelVersion>4.0.0</modelVersion>
     <groupId>hu.modeldriven</groupId>
@@ -23,7 +26,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.1.2</version>
+                <version>3.5.0</version>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -40,7 +43,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.3.2</version>
                 <configuration>
                     <inputEncoding>UTF-8</inputEncoding>
                     <outputEncoding>UTF-8</outputEncoding>
@@ -50,7 +53,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.12.1</version>
                 <configuration>
                     <locales>ja</locales>
                     <inputEncoding>UTF-8</inputEncoding>
@@ -61,7 +64,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.4.2</version>
+                <version>3.2.5</version>
                 <configuration>
                     <excludes>
                         <exclude>**/TestUtils.java</exclude>
@@ -74,7 +77,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.4.2</version>
+                <version>3.2.5</version>
             </plugin>
         </plugins>
     </reporting>
@@ -96,7 +99,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.10</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -114,7 +117,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>2.5.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <source>1.8</source>
@@ -124,7 +127,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <version>2.7</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -207,15 +210,6 @@
             </plugins>
         </pluginManagement>
     </build>
-    <repositories>
-        <repository>
-            <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please
-                replace the dependencies in this repository with correct ones and delete this repository.
-            </name>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.change_vision.astah</groupId>
@@ -227,13 +221,13 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
-            <version>4.2.0</version>
+            <version>${osgi.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.compendium</artifactId>
-            <version>4.2.0</version>
+            <version>${osgi.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -261,7 +255,12 @@
         <dependency>
             <groupId>com.miglayout</groupId>
             <artifactId>miglayout</artifactId>
-            <version>3.7.4</version>
+            <version>${miglayout.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>rsyntaxtextarea</artifactId>
+            <version>${rsyntaxtextarea.version}</version>
         </dependency>
     </dependencies>
 </project>

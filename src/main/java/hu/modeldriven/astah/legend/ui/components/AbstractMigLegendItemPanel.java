@@ -1,6 +1,9 @@
 package hu.modeldriven.astah.legend.ui.components;
 
 import net.miginfocom.swing.MigLayout;
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -83,12 +86,17 @@ public class AbstractMigLegendItemPanel extends JPanel {
         label3.setFont(labelFont);
         contentPanel.add(label3, "cell 0 3");
 
-        scriptTextField = new JTextArea();
-        scriptTextField.setColumns(20);
-        scriptTextField.setRows(5);
+        scriptTextArea = new RSyntaxTextArea();
+        scriptTextArea.setColumns(40);
+        scriptTextArea.setRows(10);
+        scriptTextArea.setCodeFoldingEnabled(true);
+        scriptTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_GROOVY);
+        scriptTextArea.setAntiAliasingEnabled(true);
+        scriptTextArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
 
-        scrollPane = new JScrollPane();
-        scrollPane.setViewportView(scriptTextField);
+        scrollPane = new RTextScrollPane();
+        scrollPane.setViewportView(scriptTextArea);
+        scrollPane.setLineNumbersEnabled(true);
 
         contentPanel.add(scrollPane, "cell 1 3 2 1");
 
@@ -126,7 +134,7 @@ public class AbstractMigLegendItemPanel extends JPanel {
     private javax.swing.JPanel infoPanel;
     protected javax.swing.JButton okButton;
     protected JTextField nameField;
-    protected javax.swing.JTextArea scriptTextField;
-    protected javax.swing.JScrollPane scrollPane;
+    protected org.fife.ui.rsyntaxtextarea.RSyntaxTextArea scriptTextArea;
+    protected org.fife.ui.rtextarea.RTextScrollPane scrollPane;
 
 }
