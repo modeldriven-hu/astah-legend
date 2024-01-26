@@ -52,8 +52,8 @@ public class YAMLLegendFile implements LegendFile {
 
         LegendStyle legendStyle = legend.getStyle();
         Map<String, Object> legendStyleData = new HashMap<>();
-        legendStyleData.put(BACKGROUND_COLOR, toHex(legendStyle.getBackgroundColor()));
-        legendStyleData.put(BORDER_COLOR, toHex(legendStyle.getBorderColor()));
+        legendStyleData.put(BACKGROUND_COLOR, new HexColor(legendStyle.getBackgroundColor()).toString());
+        legendStyleData.put(BORDER_COLOR, new HexColor(legendStyle.getBorderColor()).toString());
         legendStyleData.put(BORDER_WIDTH, legendStyle.getBorderWidth());
         legendStyleData.put(BORDER_TYPE, legendStyle.getBorderType().name());
         legendStyleData.put(BORDER_FORMAT, legendStyle.getBorderFormat().name());
@@ -67,8 +67,8 @@ public class YAMLLegendFile implements LegendFile {
             Map<String, Object> legendItemData = new HashMap<>();
 
             legendItemData.put(NAME, Objects.toString(legendItem.getName(), ""));
-            legendItemData.put(BACKGROUND_COLOR, toHex(legendItem.getBackgroundColor()));
-            legendItemData.put(TEXT_COLOR, toHex(legendItem.getTextColor()));
+            legendItemData.put(BACKGROUND_COLOR, new HexColor(legendItem.getBackgroundColor()).toString());
+            legendItemData.put(TEXT_COLOR, new HexColor(legendItem.getTextColor()).toString());
             legendItemData.put(SCRIPT, Objects.toString(legendItem.getScript(), ""));
 
             legendItemsData.add(legendItemData);
@@ -86,11 +86,6 @@ public class YAMLLegendFile implements LegendFile {
         } catch (Exception e) {
             throw new LegendFileException(e);
         }
-    }
-
-    private String toHex(Color color) {
-        String hex = "#" + Integer.toHexString(color.getRGB()).substring(2);
-        return hex.toUpperCase();
     }
 
     private Legend createLegend(Map<String, Object> data) {

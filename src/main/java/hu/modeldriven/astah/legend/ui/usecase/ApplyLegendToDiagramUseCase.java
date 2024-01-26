@@ -5,11 +5,13 @@ import com.change_vision.jude.api.inf.exception.InvalidEditingException;
 import com.change_vision.jude.api.inf.exception.InvalidUsingException;
 import com.change_vision.jude.api.inf.model.IDiagram;
 import com.change_vision.jude.api.inf.presentation.IPresentation;
-import com.change_vision.jude.api.inf.presentation.PresentationPropertyConstants;
+import com.change_vision.jude.api.inf.presentation.PresentationPropertyConstants.Key;
 import hu.modeldriven.astah.core.AstahTransaction;
 import hu.modeldriven.astah.legend.ui.event.ApplyLegendRequestedEvent;
 import hu.modeldriven.astah.legend.ui.event.ExceptionOccurredEvent;
 import hu.modeldriven.astah.legend.ui.model.Legend;
+import hu.modeldriven.astah.legend.ui.model.LegendItem;
+import hu.modeldriven.astah.legend.ui.model.impl.HexColor;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
@@ -32,12 +34,9 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
             IDiagram diagram = getCurrentDiagram();
 
             if (diagram == null) {
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Please open the diagram!",
-                        "Information",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+
+                JOptionPane.showMessageDialog(null,"Please open the diagram!","Information",
+                        JOptionPane.INFORMATION_MESSAGE);
 
                 return;
             }
@@ -60,8 +59,27 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
     private void applyLegendOnDiagram(IDiagram diagram, Legend legend) throws InvalidUsingException, InvalidEditingException {
 
         for (IPresentation presentation : diagram.getPresentations()) {
-            presentation.setProperty(PresentationPropertyConstants.Key.FILL_COLOR, "#ff3366");
+
+            for (LegendItem legendItem : legend.getLegendItems()){
+
+                if (isMatching(presentation, legendItem)) {
+
+                    presentation.setProperty(
+                            Key.FILL_COLOR,
+                            new HexColor(legendItem.getBackgroundColor()).toString());
+
+                    presentation.setProperty(
+                            Key.FONT_COLOR,
+                            new HexColor(legendItem.getTextColor()).toString());
+
+                }
+            }
         }
+    }
+
+    public boolean isMatching(IPresentation presentation, LegendItem legendItem){
+        // FIXME run groovy code to validate
+        return true;
     }
 
     IDiagram getCurrentDiagram() throws Exception {
