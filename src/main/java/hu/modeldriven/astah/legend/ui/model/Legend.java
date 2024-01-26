@@ -1,8 +1,13 @@
 package hu.modeldriven.astah.legend.ui.model;
 
+import hu.modeldriven.astah.legend.ui.model.impl.LegendStyleImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * FIXME This is still mutable, and this has to be changed
+ */
 public class Legend {
 
     private String name;
@@ -11,7 +16,7 @@ public class Legend {
     private final List<LegendItem> legendItems = new ArrayList<LegendItem>();
 
     public Legend() {
-        this.style = new LegendStyle();
+        this.style = new LegendStyleImpl();
     }
 
     public String getName() {

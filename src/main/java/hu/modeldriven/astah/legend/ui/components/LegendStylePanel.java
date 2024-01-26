@@ -3,6 +3,7 @@ package hu.modeldriven.astah.legend.ui.components;
 import hu.modeldriven.astah.legend.ui.model.BorderFormat;
 import hu.modeldriven.astah.legend.ui.model.BorderType;
 import hu.modeldriven.astah.legend.ui.model.LegendStyle;
+import hu.modeldriven.astah.legend.ui.model.impl.LegendStyleImpl;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -47,7 +48,7 @@ public class LegendStylePanel extends AbstractLegendStylePanel {
 
         okButton.addActionListener(actionEvent -> {
 
-            LegendStyle legendStyle = new LegendStyle(
+            LegendStyle legendStyle = new LegendStyleImpl(
                     backgroundColorPanel.getBackground(),
                     borderColorPanel.getBackground(),
                     Integer.parseInt(borderWidthTextField.getText()),

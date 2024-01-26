@@ -1,0 +1,10 @@
+legend-name: My legend
+legend-style:
+    background-color: "#AABB12"
+    border-color: "#FF0000"
+    border-width: 2
+    border-type: "SOLID"
+    format: "ROUNDED"
+legends:
+    - {name: "Warning", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')"}
+    - {name: "Error", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')" }

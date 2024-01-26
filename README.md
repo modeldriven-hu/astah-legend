@@ -8,4 +8,4 @@ Add legend support for Astah.
 - [ ] Create a legend widget on the diagram
 - [ ] Double-click on legend item shall show the editor
 - [ ] Display legend style values
-- [ ] Display text color for legend items in table
+- [ ] Implement load yaml

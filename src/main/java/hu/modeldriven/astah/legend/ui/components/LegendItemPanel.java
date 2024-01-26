@@ -1,6 +1,7 @@
 package hu.modeldriven.astah.legend.ui.components;
 
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
+import hu.modeldriven.astah.legend.ui.model.impl.LegendItemImpl;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -45,7 +46,7 @@ public class LegendItemPanel extends AbstractLegendItemPanel {
 
         okButton.addActionListener(actionEvent -> {
 
-            LegendItem item = new LegendItem(
+            LegendItem item = new LegendItemImpl(
                     legendItem.getId(),
                     nameField.getText(),
                     backgroundColorPanel.getBackground(),

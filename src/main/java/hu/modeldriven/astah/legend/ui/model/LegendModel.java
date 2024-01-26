@@ -86,7 +86,6 @@ public class LegendModel implements EventHandler<Event> {
         return a.getId().equals(b.getId());
     }
 
-
     public Legend getLegend() {
         return legend;
     }
