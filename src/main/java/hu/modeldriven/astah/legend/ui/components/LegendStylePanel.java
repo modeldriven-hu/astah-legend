@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.util.function.Consumer;
 
-public class LegendStylePanel extends AbstractMigLegendStylePanel {
+public class LegendStylePanel extends AbstractLegendStylePanel {
 
     private final LegendStyleDialog parent;
     private final Consumer<LegendStyle> callback;

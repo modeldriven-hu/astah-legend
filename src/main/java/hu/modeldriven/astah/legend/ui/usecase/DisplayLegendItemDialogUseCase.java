@@ -7,15 +7,18 @@ import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
+import java.awt.Component;
 import java.util.Collections;
 import java.util.List;
 
-public class DisplayLegendItemEditDialogUseCase implements EventHandler<ModifyLegendItemRequestedEvent> {
+public class DisplayLegendItemDialogUseCase implements EventHandler<ModifyLegendItemRequestedEvent> {
 
     private final EventBus eventBus;
+    private final Component parentComponent;
 
-    public DisplayLegendItemEditDialogUseCase(EventBus eventBus) {
+    public DisplayLegendItemDialogUseCase(EventBus eventBus, Component parentComponent) {
         this.eventBus = eventBus;
+        this.parentComponent = parentComponent;
     }
 
     @Override
@@ -25,6 +28,7 @@ public class DisplayLegendItemEditDialogUseCase implements EventHandler<ModifyLe
         });
 
         dialog.setLegendItem(event.getLegendItem());
+        dialog.setLocationRelativeTo(parentComponent);
         dialog.setVisible(true);
     }
 

@@ -115,9 +115,9 @@ public class LegendPanel extends AbstractLegendPanel {
         eventBus.subscribe(new ClearLegendItemsTableUseCase(tableModel));
         eventBus.subscribe(new RemoveLegendItemUseCase(eventBus, tableModel));
         eventBus.subscribe(new ReorganizeLegendItemUseCase(eventBus, tableModel));
-        eventBus.subscribe(new DisplayLegendItemEditDialogUseCase(eventBus));
+        eventBus.subscribe(new DisplayLegendItemDialogUseCase(eventBus, this));
         eventBus.subscribe(new UpdateTableOnLegendItemModificationUseCase(tableModel));
-        eventBus.subscribe(new DisplayLegendStyleDialogUseCase(eventBus));
+        eventBus.subscribe(new DisplayLegendStyleDialogUseCase(eventBus, this));
     }
 
 }

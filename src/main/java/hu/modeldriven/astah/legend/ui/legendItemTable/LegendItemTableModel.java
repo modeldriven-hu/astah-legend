@@ -87,7 +87,7 @@ public class LegendItemTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -98,7 +98,9 @@ public class LegendItemTableModel extends AbstractTableModel {
             case 1:
                 return "Name";
             case 2:
-                return "Background";
+                return "Background color";
+            case 3:
+                return "Text color";
             default:
                 return "Unknown column";
         }
@@ -111,6 +113,7 @@ public class LegendItemTableModel extends AbstractTableModel {
             case 1:
                 return String.class;
             case 2:
+            case 3:
                 return Color.class;
             default:
                 return null;
@@ -122,19 +125,23 @@ public class LegendItemTableModel extends AbstractTableModel {
 
         LegendItem legendItem = legendItems.get(row);
 
-        if (column == 0) {
-            return legendItem.getId();
-        }
+        switch (column) {
 
-        if (column == 1) {
-            return legendItem.getName();
-        }
+            case 0:
+                return legendItem.getId();
 
-        if (column == 2) {
-            return legendItem.getBackgroundColor();
-        }
+            case 1:
+                return legendItem.getName();
 
-        return null;
+            case 2:
+                return legendItem.getBackgroundColor();
+
+            case 3:
+                return legendItem.getTextColor();
+
+            default:
+                return null;
+        }
     }
 
 }

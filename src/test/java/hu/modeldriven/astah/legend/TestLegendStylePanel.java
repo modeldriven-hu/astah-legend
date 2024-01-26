@@ -2,7 +2,7 @@ package hu.modeldriven.astah.legend;
 
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
-import hu.modeldriven.astah.legend.ui.components.AbstractMigLegendStylePanel;
+import hu.modeldriven.astah.legend.ui.components.AbstractLegendStylePanel;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -43,7 +43,7 @@ public class TestLegendStylePanel {
         frame.setLocation(100, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new AbstractMigLegendStylePanel();
+        JPanel panel = new AbstractLegendStylePanel();
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(panel, BorderLayout.CENTER);
         frame.pack();

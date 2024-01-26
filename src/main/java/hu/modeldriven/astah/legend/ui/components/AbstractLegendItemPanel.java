@@ -1,6 +1,9 @@
 package hu.modeldriven.astah.legend.ui.components;
 
 import net.miginfocom.swing.MigLayout;
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
+import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -8,11 +11,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
-public class AbstractMigLegendStylePanel extends JPanel {
+public class AbstractLegendItemPanel extends JPanel {
 
-    //private Font labelFont = new Font("Segoe UI Light", Font.PLAIN, 18);
-
-    public AbstractMigLegendStylePanel() {
+    public AbstractLegendItemPanel() {
         super();
 
         Font labelFont = getFont();
@@ -24,11 +25,11 @@ public class AbstractMigLegendStylePanel extends JPanel {
         infoPanel = new JPanel(new MigLayout("", "", "[]20[]"));
         infoPanel.setBackground(Color.WHITE);
 
-        JLabel headerLabel = new JLabel("Legend style");
+        JLabel headerLabel = new JLabel("Legend item");
         headerLabel.setFont(labelFont.deriveFont(Font.BOLD, 18f));
         infoPanel.add(headerLabel, "wrap");
 
-        JLabel additionalInfoLabel = new JLabel("Configure the style settings of a legend");
+        JLabel additionalInfoLabel = new JLabel("Configure the legend item!");
         additionalInfoLabel.setFont(labelFont);
         infoPanel.add(additionalInfoLabel);
 
@@ -50,59 +51,54 @@ public class AbstractMigLegendStylePanel extends JPanel {
                         "[]"
         ));
 
+        JLabel label0 = new JLabel("Name:");
+        label0.setFont(labelFont);
+        contentPanel.add(label0, "cell 0 0");
+
+        nameField = new JTextField();
+        contentPanel.add(nameField, "cell 1 0");
+
         JLabel label1 = new JLabel("Background color:");
         label1.setFont(labelFont);
-        contentPanel.add(label1, "cell 0 0");
+        contentPanel.add(label1, "cell 0 1");
 
         backgroundColorPanel = new JPanel();
         backgroundColorPanel.setPreferredSize(new Dimension(120, 20));
         backgroundColorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        contentPanel.add(backgroundColorPanel, "cell 1 0");
+        contentPanel.add(backgroundColorPanel, "cell 1 1");
 
         backgroundColorButton = new JButton("Select...");
-        contentPanel.add(backgroundColorButton, "cell 2 0");
+        contentPanel.add(backgroundColorButton, "cell 2 1");
 
-        JLabel label2 = new JLabel("Border color:");
+        JLabel label2 = new JLabel("Text color:");
         label2.setFont(labelFont);
-        contentPanel.add(label2, "cell 0 1");
+        contentPanel.add(label2, "cell 0 2");
 
-        borderColorPanel = new JPanel();
-        borderColorPanel.setPreferredSize(new Dimension(120, 20));
-        borderColorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        contentPanel.add(borderColorPanel, "cell 1 1");
+        textColorPanel = new JPanel();
+        textColorPanel.setPreferredSize(new Dimension(120, 20));
+        textColorPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        contentPanel.add(textColorPanel, "cell 1 2");
 
-        borderColorButton = new JButton("Select...");
-        contentPanel.add(borderColorButton, "cell 2 1");
+        textColorButton = new JButton("Select...");
+        contentPanel.add(textColorButton, "cell 2 2");
 
-        JLabel label3 = new JLabel("Border width:");
+        JLabel label3 = new JLabel("Script:");
         label3.setFont(labelFont);
-        contentPanel.add(label3, "cell 0 2");
+        contentPanel.add(label3, "cell 0 3");
 
-        borderWidthTextField = new JTextField();
-        contentPanel.add(borderWidthTextField, "cell 1 2");
+        scriptTextArea = new RSyntaxTextArea();
+        scriptTextArea.setColumns(40);
+        scriptTextArea.setRows(10);
+        scriptTextArea.setCodeFoldingEnabled(true);
+        scriptTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_GROOVY);
+        scriptTextArea.setAntiAliasingEnabled(true);
+        scriptTextArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
 
-        JLabel label4 = new JLabel("px");
-        label4.setFont(labelFont);
-        contentPanel.add(label4, "cell 2 2");
+        scrollPane = new RTextScrollPane();
+        scrollPane.setViewportView(scriptTextArea);
+        scrollPane.setLineNumbersEnabled(true);
 
-        JLabel label5 = new JLabel("Border type:");
-        label5.setFont(labelFont);
-        contentPanel.add(label5, "cell 0 3");
-
-        borderTypeComboBox = new JComboBox();
-        borderTypeComboBox.addItem("Solid");
-        borderTypeComboBox.addItem("Dashed");
-        borderTypeComboBox.addItem("Dotted");
-        contentPanel.add(borderTypeComboBox, "cell 1 3 2 1");
-
-        JLabel label6 = new JLabel("Format:");
-        label6.setFont(labelFont);
-        contentPanel.add(label6, "cell 0 4");
-
-        borderFormatComboBox = new JComboBox();
-        borderFormatComboBox.addItem("Rectangle");
-        borderFormatComboBox.addItem("Rounded rectangle");
-        contentPanel.add(borderFormatComboBox, "cell 1 4 2 1");
+        contentPanel.add(scrollPane, "cell 1 3 2 1");
 
         add(contentPanel, "cell 0 1");
 
@@ -123,22 +119,22 @@ public class AbstractMigLegendStylePanel extends JPanel {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new BorderLayout());
-        frame.getContentPane().add(BorderLayout.CENTER, new AbstractMigLegendStylePanel());
+        frame.getContentPane().add(BorderLayout.CENTER, new AbstractLegendItemPanel());
         frame.pack();
         frame.setVisible(true);
     }
 
     protected javax.swing.JButton backgroundColorButton;
     protected javax.swing.JPanel backgroundColorPanel;
-    protected javax.swing.JButton borderColorButton;
-    protected javax.swing.JPanel borderColorPanel;
-    protected javax.swing.JComboBox<String> borderFormatComboBox;
-    protected javax.swing.JComboBox<String> borderTypeComboBox;
-    protected javax.swing.JTextField borderWidthTextField;
+    protected javax.swing.JButton textColorButton;
+    protected javax.swing.JPanel textColorPanel;
     private javax.swing.JPanel buttonPanel;
     protected javax.swing.JButton cancelButton;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel infoPanel;
     protected javax.swing.JButton okButton;
+    protected JTextField nameField;
+    protected org.fife.ui.rsyntaxtextarea.RSyntaxTextArea scriptTextArea;
+    protected org.fife.ui.rtextarea.RTextScrollPane scrollPane;
 
 }
