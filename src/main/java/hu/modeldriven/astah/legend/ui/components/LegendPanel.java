@@ -38,7 +38,7 @@ public class LegendPanel extends AbstractLegendPanel {
         newButton.addActionListener(e -> eventBus.publish(new ResetRequestedEvent()));
         openButton.addActionListener(e -> eventBus.publish(new OpenFileRequestedEvent()));
         saveButton.addActionListener(e -> eventBus.publish(new SaveFileRequestedEvent(legendModel.getLegend())));
-        applyLegendButton.addActionListener(e -> eventBus.publish(new ApplyLegendRequestedEvent()));
+        applyLegendButton.addActionListener(e -> eventBus.publish(new ApplyLegendRequestedEvent(legendModel.getLegend())));
 
         legendNameTextField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -118,6 +118,7 @@ public class LegendPanel extends AbstractLegendPanel {
         eventBus.subscribe(new UpdateLegendNameUseCase(legendNameTextField));
         eventBus.subscribe(new DisplayExceptionUseCase());
         eventBus.subscribe(new SaveFileUseCase(eventBus, this));
+        eventBus.subscribe(new ApplyLegendToDiagramUseCase(eventBus));
     }
 
 }
