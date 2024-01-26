@@ -8,7 +8,8 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class YAMLLegendFile implements LegendFile {
 
@@ -34,12 +35,12 @@ public class YAMLLegendFile implements LegendFile {
     }
 
     private Legend createLegend(Map<String, Object> data){
-        Legend legend = new Legend();
 
-        legend.setName(data.get("legend-name").toString());
-        legend.setStyle(createLegendStyle((Map<String, Object>) data.get("legend-style")));
+        String name = data.get("legend-name").toString();
+        LegendStyle style = createLegendStyle((Map<String, Object>) data.get("legend-style"));
+        List<LegendItem> legendItems = createLegendItems((List<Object>) data.get("legend-items"));
 
-        return legend;
+        return new Legend(name, style, legendItems);
     }
 
     private LegendStyle createLegendStyle(Map<String,Object> data){
@@ -48,7 +49,26 @@ public class YAMLLegendFile implements LegendFile {
         int borderWidth = (Integer)data.get("border-width");
         BorderType type = BorderType.valueOf(data.get("border-type").toString());
         BorderFormat format = BorderFormat.valueOf(data.get("format").toString());
+
         return new LegendStyleImpl(backgroundColor, borderColor,borderWidth,type, format);
+    }
+
+    private List<LegendItem> createLegendItems(List<Object> data){
+        return data.stream()
+                .map(o -> (Map<String, Object>)o)
+                .map(this::createLegendItem)
+                .collect(Collectors.toList());
+    }
+
+    private LegendItem createLegendItem(Map<String,Object> data){
+
+        String id = UUID.randomUUID().toString();
+        String name = data.get("name").toString();
+        Color backgroundColor = Color.decode(data.get("background-color").toString());
+        Color textColor = Color.decode(data.get("text-color").toString());
+        String script = data.get("script").toString();
+
+        return new LegendItemImpl(id, name, backgroundColor, textColor,script);
     }
 
 }

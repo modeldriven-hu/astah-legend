@@ -5,6 +5,6 @@ legend-style:
     border-width: 2
     border-type: "SOLID"
     format: "ROUNDED"
-legends:
+legend-items:
     - {name: "Warning", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')"}
-    - {name: "Error", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')" }
+    - {name: "Error", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('error')" }

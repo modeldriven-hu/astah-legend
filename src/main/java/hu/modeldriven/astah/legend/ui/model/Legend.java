@@ -13,10 +13,17 @@ public class Legend {
     private String name;
     private LegendStyle style;
 
-    private final List<LegendItem> legendItems = new ArrayList<LegendItem>();
+    private final List<LegendItem> legendItems;
 
     public Legend() {
         this.style = new LegendStyleImpl();
+        this.legendItems = new ArrayList<>();
+    }
+
+    public Legend(String name, LegendStyle style, List<LegendItem> legendItems) {
+        this.name = name;
+        this.style = style;
+        this.legendItems = legendItems;
     }
 
     public String getName() {
