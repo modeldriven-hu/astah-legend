@@ -14,7 +14,7 @@ public class YAMLLegendFileTest {
         File file = new File(getClass().getClassLoader().getResource("test.yaml").getFile());
 
         LegendFile yamlLegendFile = new YAMLLegendFile(file);
-        yamlLegendFile.asLegend();
+        yamlLegendFile.read();
     }
 
 }

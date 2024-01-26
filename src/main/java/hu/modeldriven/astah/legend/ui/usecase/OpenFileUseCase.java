@@ -16,12 +16,12 @@ import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
-public class DisplayOpenFileSelectorUseCase implements EventHandler<OpenFileRequestedEvent> {
+public class OpenFileUseCase implements EventHandler<OpenFileRequestedEvent> {
 
     private final EventBus eventBus;
     private final Component parentComponent;
 
-    public DisplayOpenFileSelectorUseCase(EventBus eventBus, Component parentComponent) {
+    public OpenFileUseCase(EventBus eventBus, Component parentComponent) {
         this.eventBus = eventBus;
         this.parentComponent = parentComponent;
     }
@@ -30,14 +30,15 @@ public class DisplayOpenFileSelectorUseCase implements EventHandler<OpenFileRequ
     public void handleEvent(OpenFileRequestedEvent event) {
         final JFileChooser fileChooser = new JFileChooser();
 
-        FileNameExtensionFilter restrict = new FileNameExtensionFilter("YAML files", "yaml", "yml");
-        fileChooser.addChoosableFileFilter(restrict);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("YAML files", "yaml", "yml");
+        fileChooser.addChoosableFileFilter(filter);
+        fileChooser.setFileFilter(filter);
 
         if (fileChooser.showOpenDialog(parentComponent) == JFileChooser.APPROVE_OPTION) {
             try {
                 File file = fileChooser.getSelectedFile();
                 LegendFile legendFile = new YAMLLegendFile(file);
-                eventBus.publish(new LegendAvailableEvent(legendFile.asLegend()));
+                eventBus.publish(new LegendAvailableEvent(legendFile.read()));
             } catch (Exception e) {
                 eventBus.publish(new ExceptionOccurredEvent(e));
             }

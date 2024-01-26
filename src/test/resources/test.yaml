@@ -4,7 +4,7 @@ legend-style:
     border-color: "#FF0000"
     border-width: 2
     border-type: "SOLID"
-    format: "ROUNDED"
+    border-format: "ROUNDED"
 legend-items:
     - {name: "Warning", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')"}
     - {name: "Error", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('error')" }

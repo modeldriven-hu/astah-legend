@@ -20,6 +20,9 @@ public class LegendItemImpl implements LegendItem {
     public LegendItemImpl() {
         this.id = UUID.randomUUID().toString();
         this.name = "Item";
+        this.backgroundColor = Color.red;
+        this.textColor = Color.black;
+        this.script = "true";
     }
 
     public LegendItemImpl(String id, String name, Color backgroundColor, Color textColor, String script) {
