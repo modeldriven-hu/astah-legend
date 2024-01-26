@@ -2,7 +2,6 @@ package hu.modeldriven.astah.legend.ui.model;
 
 import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.core.eventbus.Event;
-import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
 import java.util.Arrays;
@@ -17,12 +16,9 @@ import java.util.List;
  */
 public class LegendModel implements EventHandler<Event> {
 
-    private final EventBus eventBus;
-
     private Legend legend;
 
-    public LegendModel(EventBus eventBus) {
-        this.eventBus = eventBus;
+    public LegendModel() {
         this.legend = new Legend();
     }
 

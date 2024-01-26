@@ -49,7 +49,7 @@ public class TestFrame {
 
         EventBus eventBus = new EventBus();
 
-        JPanel panel = new LegendPanel(frame, eventBus);
+        JPanel panel = new LegendPanel(eventBus);
 
         frame.getContentPane().add(panel, BorderLayout.NORTH);
     }

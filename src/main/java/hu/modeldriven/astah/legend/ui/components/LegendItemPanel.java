@@ -59,9 +59,7 @@ public class LegendItemPanel extends AbstractLegendItemPanel {
             parent.dispose();
         });
 
-        cancelButton.addActionListener(actionEvent -> {
-            parent.dispose();
-        });
+        cancelButton.addActionListener(actionEvent -> parent.dispose());
     }
 
     public void setLegendItem(LegendItem legendItem) {

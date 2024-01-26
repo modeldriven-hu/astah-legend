@@ -6,7 +6,7 @@ public class LegendNameModificationRequestedEvent implements Event {
 
     private final String name;
 
-    public LegendNameModificationRequestedEvent(String name){
+    public LegendNameModificationRequestedEvent(String name) {
         this.name = name;
     }
 

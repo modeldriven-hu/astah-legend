@@ -11,23 +11,20 @@ import hu.modeldriven.core.eventbus.EventBus;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.Color;
-import java.awt.Component;
 
 public class LegendPanel extends AbstractLegendPanel {
 
-    private final Component parentComponent;
     private final EventBus eventBus;
 
     private final LegendItemTableModel tableModel;
 
     private final LegendModel legendModel;
 
-    public LegendPanel(Component parentComponent, EventBus eventBus) {
+    public LegendPanel(EventBus eventBus) {
         super();
-        this.parentComponent = parentComponent;
         this.eventBus = eventBus;
         this.tableModel = new LegendItemTableModel();
-        this.legendModel = new LegendModel(eventBus);
+        this.legendModel = new LegendModel();
         initUIComponents();
         initUseCases();
     }
@@ -64,9 +61,7 @@ public class LegendPanel extends AbstractLegendPanel {
             }
         });
 
-        configureStyleButton.addActionListener(e -> {
-            eventBus.publish(new ModifyLegendStyleRequestedEvent(legendModel.getLegend().getStyle()));
-        });
+        configureStyleButton.addActionListener(e -> eventBus.publish(new ModifyLegendStyleRequestedEvent(legendModel.getLegend().getStyle())));
     }
 
     private void initLegendItemPanel() {

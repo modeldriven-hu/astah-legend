@@ -48,7 +48,7 @@ public class YAMLLegendFile implements LegendFile {
     public void write(Legend legend) throws LegendFileException {
         Map<String, Object> legendData = new HashMap<>();
 
-        legendData.put(LEGEND_NAME, Objects.toString(legend.getName(),""));
+        legendData.put(LEGEND_NAME, Objects.toString(legend.getName(), ""));
 
         LegendStyle legendStyle = legend.getStyle();
         Map<String, Object> legendStyleData = new HashMap<>();
@@ -66,10 +66,10 @@ public class YAMLLegendFile implements LegendFile {
 
             Map<String, Object> legendItemData = new HashMap<>();
 
-            legendItemData.put(NAME, Objects.toString(legendItem.getName(),""));
+            legendItemData.put(NAME, Objects.toString(legendItem.getName(), ""));
             legendItemData.put(BACKGROUND_COLOR, toHex(legendItem.getBackgroundColor()));
             legendItemData.put(TEXT_COLOR, toHex(legendItem.getTextColor()));
-            legendItemData.put(SCRIPT, Objects.toString(legendItem.getScript(),""));
+            legendItemData.put(SCRIPT, Objects.toString(legendItem.getScript(), ""));
 
             legendItemsData.add(legendItemData);
         }

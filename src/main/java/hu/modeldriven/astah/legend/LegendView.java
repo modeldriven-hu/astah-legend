@@ -1,6 +1,5 @@
 package hu.modeldriven.astah.legend;
 
-import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.ui.IPluginExtraTabView;
 import com.change_vision.jude.api.inf.ui.ISelectionListener;
 import hu.modeldriven.astah.legend.ui.components.LegendPanel;
@@ -23,17 +22,8 @@ public class LegendView extends JPanel implements IPluginExtraTabView {
     }
 
     private Container createContentPane() {
-
-        Component component;
-
-        try {
-            component = AstahAPI.getAstahAPI().getViewManager().getMainFrame();
-        } catch (Exception e) {
-            component = this;
-        }
-
         EventBus eventBus = new EventBus();
-        return new LegendPanel(component, eventBus);
+        return new LegendPanel(eventBus);
     }
 
     @Override

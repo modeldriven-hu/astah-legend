@@ -7,7 +7,7 @@ public class LegendAvailableEvent implements Event {
 
     private final Legend legend;
 
-    public LegendAvailableEvent(Legend legend){
+    public LegendAvailableEvent(Legend legend) {
         this.legend = legend;
     }
 

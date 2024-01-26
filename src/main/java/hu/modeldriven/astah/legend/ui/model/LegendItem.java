@@ -1,7 +1,6 @@
 package hu.modeldriven.astah.legend.ui.model;
 
 import java.awt.Color;
-import java.util.UUID;
 
 public interface LegendItem {
 

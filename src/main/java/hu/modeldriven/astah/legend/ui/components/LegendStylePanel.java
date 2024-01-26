@@ -61,10 +61,7 @@ public class LegendStylePanel extends AbstractLegendStylePanel {
             parent.dispose();
         });
 
-        cancelButton.addActionListener(actionEvent -> {
-            parent.dispose();
-        });
-
+        cancelButton.addActionListener(actionEvent -> parent.dispose());
     }
 
     public void setLegendStyle(LegendStyle legendStyle) {

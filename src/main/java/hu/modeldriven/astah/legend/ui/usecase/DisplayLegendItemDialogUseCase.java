@@ -23,9 +23,8 @@ public class DisplayLegendItemDialogUseCase implements EventHandler<ModifyLegend
 
     @Override
     public void handleEvent(ModifyLegendItemRequestedEvent event) {
-        LegendItemDialog dialog = new LegendItemDialog(legendItem -> {
-            eventBus.publish(new LegendItemModifiedEvent(legendItem));
-        });
+        LegendItemDialog dialog = new LegendItemDialog(
+                legendItem -> eventBus.publish(new LegendItemModifiedEvent(legendItem)));
 
         dialog.setLegendItem(event.getLegendItem());
         dialog.setLocationRelativeTo(parentComponent);

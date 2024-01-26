@@ -5,7 +5,7 @@ import hu.modeldriven.core.eventbus.Event;
 
 public class SaveFileRequestedEvent implements Event {
 
-    private Legend legend;
+    private final Legend legend;
 
     public SaveFileRequestedEvent(Legend legend) {
         this.legend = legend;

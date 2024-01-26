@@ -10,8 +10,6 @@ import java.awt.Font;
 
 public class AbstractLegendStylePanel extends JPanel {
 
-    //private Font labelFont = new Font("Segoe UI Light", Font.PLAIN, 18);
-
     public AbstractLegendStylePanel() {
         super();
 
@@ -89,7 +87,7 @@ public class AbstractLegendStylePanel extends JPanel {
         label5.setFont(labelFont);
         contentPanel.add(label5, "cell 0 3");
 
-        borderTypeComboBox = new JComboBox();
+        borderTypeComboBox = new JComboBox<>();
         borderTypeComboBox.addItem("Solid");
         borderTypeComboBox.addItem("Dashed");
         borderTypeComboBox.addItem("Dotted");
@@ -99,7 +97,7 @@ public class AbstractLegendStylePanel extends JPanel {
         label6.setFont(labelFont);
         contentPanel.add(label6, "cell 0 4");
 
-        borderFormatComboBox = new JComboBox();
+        borderFormatComboBox = new JComboBox<>();
         borderFormatComboBox.addItem("Rectangle");
         borderFormatComboBox.addItem("Rounded rectangle");
         contentPanel.add(borderFormatComboBox, "cell 1 4 2 1");
@@ -135,10 +133,10 @@ public class AbstractLegendStylePanel extends JPanel {
     protected javax.swing.JComboBox<String> borderFormatComboBox;
     protected javax.swing.JComboBox<String> borderTypeComboBox;
     protected javax.swing.JTextField borderWidthTextField;
-    private javax.swing.JPanel buttonPanel;
+    private final javax.swing.JPanel buttonPanel;
     protected javax.swing.JButton cancelButton;
-    private javax.swing.JPanel contentPanel;
-    private javax.swing.JPanel infoPanel;
+    private final javax.swing.JPanel contentPanel;
+    private final javax.swing.JPanel infoPanel;
     protected javax.swing.JButton okButton;
 
 }

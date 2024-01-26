@@ -128,10 +128,10 @@ public class AbstractLegendItemPanel extends JPanel {
     protected javax.swing.JPanel backgroundColorPanel;
     protected javax.swing.JButton textColorButton;
     protected javax.swing.JPanel textColorPanel;
-    private javax.swing.JPanel buttonPanel;
+    private final javax.swing.JPanel buttonPanel;
     protected javax.swing.JButton cancelButton;
-    private javax.swing.JPanel contentPanel;
-    private javax.swing.JPanel infoPanel;
+    private final javax.swing.JPanel contentPanel;
+    private final javax.swing.JPanel infoPanel;
     protected javax.swing.JButton okButton;
     protected JTextField nameField;
     protected org.fife.ui.rsyntaxtextarea.RSyntaxTextArea scriptTextArea;

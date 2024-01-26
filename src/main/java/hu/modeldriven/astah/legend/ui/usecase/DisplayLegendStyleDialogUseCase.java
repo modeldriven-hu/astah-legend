@@ -23,9 +23,8 @@ public class DisplayLegendStyleDialogUseCase implements EventHandler<ModifyLegen
 
     @Override
     public void handleEvent(ModifyLegendStyleRequestedEvent event) {
-        LegendStyleDialog dialog = new LegendStyleDialog(legendStyle -> {
-            eventBus.publish(new LegendStyleModifiedEvent(legendStyle));
-        });
+        LegendStyleDialog dialog = new LegendStyleDialog(
+                legendStyle -> eventBus.publish(new LegendStyleModifiedEvent(legendStyle)));
 
         dialog.setLegendStyle(event.getLegendStyle());
         dialog.setLocationRelativeTo(parentComponent);

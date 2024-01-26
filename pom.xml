@@ -24,6 +24,22 @@
     <packaging>jar</packaging>
     <name>astah-legend</name>
     <description>Legend plugin for Astah</description>
+    <repositories>
+        <repository>
+            <id>java.net</id>
+            <name>java.net Maven Repository</name>
+            <url>https://download.java.net/maven/2</url>
+            <releases>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>uk-central</id>
+            <url>https://uk.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <reporting>
         <plugins>
             <plugin>
