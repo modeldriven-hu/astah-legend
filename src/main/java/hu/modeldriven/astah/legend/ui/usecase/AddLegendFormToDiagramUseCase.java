@@ -20,6 +20,7 @@ import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
@@ -30,7 +31,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
+public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
 
     private final Font headerFont = new Font("Dialog", Font.BOLD, 16);
     private final Font itemFont = new Font("Dialog", Font.BOLD, 12);
@@ -43,7 +44,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
     private final EventBus eventBus;
     private final AstahRepresentation astah;
 
-    public AddLegendToDiagramUseCase(EventBus eventBus, AstahRepresentation astah) {
+    public AddLegendFormToDiagramUseCase(EventBus eventBus, AstahRepresentation astah) {
         this.eventBus = eventBus;
         this.astah = astah;
     }
@@ -81,11 +82,10 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
     private void drawLegendHeader(BlockDefinitionDiagramEditor editor, Legend legend, Point2D topLeftPoint) throws InvalidEditingException {
         int legendWidth = calculateLegendWidth(itemFont, legend);
 
-        TextLayout textLayout = createTextLayout(headerFont, legend.getName());
-        int textWidth = Math.round(textLayout.getAdvance());
+        Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         Point2D headerPoint = new Point2D.Double(
-                topLeftPoint.getX() + (legendWidth - textWidth) / 2,
+                topLeftPoint.getX() + (legendWidth - textSize.width) / 2,
                 topLeftPoint.getY() + MARGIN);
 
         INodePresentation labelPresentation = editor.createText(legend.getName(), headerPoint);
@@ -94,10 +94,10 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
 
     private void drawLegendItems(BlockDefinitionDiagramEditor editor, Legend legend, Point2D topLeftPoint) throws InvalidEditingException {
 
-        TextLayout headerTextLayout = createTextLayout(headerFont, legend.getName());
+        Dimension headerTextSize = calculateTextSize(headerFont, legend.getName());
 
         double x = topLeftPoint.getX() + MARGIN;
-        double y = topLeftPoint.getY() + MARGIN + headerTextLayout.getBounds().getHeight() + HEADER_GAP;
+        double y = topLeftPoint.getY() + MARGIN + headerTextSize.height + HEADER_GAP;
 
         for (LegendItem item : legend.getLegendItems()) {
 
@@ -115,7 +115,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
 
             // Add label
 
-            double labelHeight = createTextLayout(itemFont, item.getName()).getBounds().getHeight();
+            int labelHeight = calculateTextSize(itemFont, item.getName()).height;
 
             double labelX = x + ITEM_BOX_SIZE + ITEM_TEXT_GAP;
             double labelY = y + labelHeight / 2;
@@ -137,8 +137,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
         int legendWidth = calculateLegendWidth(itemFont, legend);
         int legendHeight = calculateLegendHeight(headerFont, legend);
 
-        INodePresentation legendPresentation = editor
-                .createRect(topLeftPoint, legendWidth, legendHeight);
+        INodePresentation legendPresentation = editor.createRect(topLeftPoint, legendWidth, legendHeight);
 
         legendPresentation.setProperty(
                 Key.FILL_COLOR,
@@ -179,30 +178,33 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
                 .max(Comparator.comparingInt(String::length))
                 .orElse(null);
 
-        TextLayout textLayout = createTextLayout(font, longestLabel);
+        Dimension textSize = calculateTextSize(font, longestLabel);
 
-        int textWidth = Math.round(textLayout.getAdvance());
-
-        return MARGIN + ITEM_BOX_SIZE + ITEM_TEXT_GAP + textWidth + MARGIN;
+        return MARGIN + ITEM_BOX_SIZE + ITEM_TEXT_GAP + textSize.width + MARGIN;
     }
 
     private int calculateLegendHeight(Font headerFont, Legend legend){
 
-        TextLayout textLayout = createTextLayout(headerFont, legend.getName());
+        Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         return MARGIN +
-                (int)textLayout.getBounds().getHeight() +
+                textSize.height +
                 HEADER_GAP +
                 legend.getLegendItems().size()  * ITEM_BOX_SIZE +
                 (legend.getLegendItems().size() - 1) * ITEM_GAP +
                 MARGIN;
     }
 
-    private TextLayout createTextLayout(Font font, String text){
+    private Dimension calculateTextSize(Font font, String text) {
         FontRenderContext fontRenderContext = new FontRenderContext(null, true, true);
 
         // TextLayout does not accept empty strings
-        return new TextLayout(text.equals("") ? " " : text, font, fontRenderContext);
+        TextLayout textLayout = new TextLayout(text.equals("") ? " " : text, font, fontRenderContext);
+
+        return new Dimension(
+                Math.round(textLayout.getAdvance()),
+                Math.round(textLayout.getAscent() + textLayout.getDescent() + textLayout.getLeading())
+        );
     }
 
     private List<String> getLegendLabels(Legend legend){

@@ -193,7 +193,7 @@ public class LegendPanel extends AbstractLegendPanel {
         eventBus.subscribe(new DisplayExceptionUseCase());
         eventBus.subscribe(new SaveFileUseCase(eventBus, this));
         eventBus.subscribe(new ApplyLegendToDiagramUseCase(eventBus, astah));
-        eventBus.subscribe(new AddLegendToDiagramUseCase(eventBus, astah));
+        eventBus.subscribe(new AddLegendFormToDiagramUseCase(eventBus, astah));
     }
 
 }
