@@ -9,6 +9,7 @@ public class HexColor {
     public HexColor(Color color) {
         this.color = color;
     }
+
     @Override
     public String toString() {
         String hex = "#" + Integer.toHexString(color.getRGB()).substring(2);

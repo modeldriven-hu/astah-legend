@@ -26,7 +26,7 @@ public class AstahRepresentation {
             BlockDefinitionDiagramEditor editor = accessor.getDiagramEditorFactory().getBlockDefinitionDiagramEditor();
             editor.setDiagram(diagram);
             return editor;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new AstahRuntimeException(e);
         }
     }

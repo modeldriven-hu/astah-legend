@@ -8,7 +8,7 @@ public class ApplyLegendRequestedEvent implements Event {
 
     private final Legend legend;
 
-    public ApplyLegendRequestedEvent(Legend legend){
+    public ApplyLegendRequestedEvent(Legend legend) {
         this.legend = legend;
     }
 

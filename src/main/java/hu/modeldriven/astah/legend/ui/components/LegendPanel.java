@@ -70,11 +70,11 @@ public class LegendPanel extends AbstractLegendPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2){
+                if (e.getClickCount() == 2) {
 
                     int row = legendItemTable.rowAtPoint(e.getPoint());
 
-                    if (row == -1){
+                    if (row == -1) {
                         return;
                     }
 

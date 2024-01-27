@@ -1,8 +1,8 @@
 package hu.modeldriven.astah.core;
 
-public class AstahRuntimeException extends RuntimeException{
+public class AstahRuntimeException extends RuntimeException {
 
-    public AstahRuntimeException(Exception e){
+    public AstahRuntimeException(Exception e) {
         super(e);
     }
 

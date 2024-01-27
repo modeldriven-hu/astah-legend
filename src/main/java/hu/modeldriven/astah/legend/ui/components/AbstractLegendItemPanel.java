@@ -146,10 +146,10 @@ public class AbstractLegendItemPanel extends JPanel {
     protected JPanel backgroundColorPanel;
     protected JButton textColorButton;
     protected JPanel textColorPanel;
-    private JPanel buttonPanel;
+    private final JPanel buttonPanel;
     protected JButton cancelButton;
-    private JPanel contentPanel;
-    private JPanel infoPanel;
+    private final JPanel contentPanel;
+    private final JPanel infoPanel;
     protected JButton okButton;
     protected JTextField nameField;
     protected RSyntaxTextArea scriptTextArea;

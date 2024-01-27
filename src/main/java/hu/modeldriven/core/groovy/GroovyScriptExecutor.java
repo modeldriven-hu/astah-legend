@@ -12,7 +12,7 @@ public class GroovyScriptExecutor implements ScriptExecutor {
 
         Binding binding = new Binding();
 
-        for (Map.Entry<String, Object> entry : arguments.entrySet()){
+        for (Map.Entry<String, Object> entry : arguments.entrySet()) {
             binding.setVariable(entry.getKey(), entry.getValue());
         }
 

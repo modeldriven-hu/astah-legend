@@ -1,6 +1,5 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.model.IDiagram;
 import com.change_vision.jude.api.inf.presentation.IPresentation;
 import com.change_vision.jude.api.inf.presentation.PresentationPropertyConstants.Key;
@@ -58,7 +57,7 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
         }
     }
 
-    private void applyLegendOnDiagram(IDiagram diagram, Legend legend) throws AstahRuntimeException{
+    private void applyLegendOnDiagram(IDiagram diagram, Legend legend) throws AstahRuntimeException {
 
         try {
 
@@ -80,7 +79,7 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
                 }
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new AstahRuntimeException(e);
         }
     }

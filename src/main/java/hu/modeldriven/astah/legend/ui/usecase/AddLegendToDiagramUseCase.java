@@ -1,11 +1,6 @@
 package hu.modeldriven.astah.legend.ui.usecase;
 
-import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.editor.BlockDefinitionDiagramEditor;
-import com.change_vision.jude.api.inf.editor.IDiagramEditorFactory;
-import com.change_vision.jude.api.inf.model.IDiagram;
-import com.change_vision.jude.api.inf.project.ProjectAccessor;
-import hu.modeldriven.astah.core.AstahException;
 import hu.modeldriven.astah.core.AstahRepresentation;
 import hu.modeldriven.astah.core.AstahRuntimeException;
 import hu.modeldriven.astah.core.AstahTransaction;
@@ -37,7 +32,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
             AstahTransaction transaction = new AstahTransaction();
             transaction.execute(() -> addLegendToDiagram(astah.getDiagramEditor(), event.getLegend()));
 
-        } catch (Exception e){
+        } catch (Exception e) {
             eventBus.publish(new ExceptionOccurredEvent(e));
         }
     }
@@ -45,7 +40,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
     private void addLegendToDiagram(BlockDefinitionDiagramEditor editor, Legend legend) throws AstahRuntimeException {
         try {
             editor.createRect(new Point2D.Double(10, 10), 30, 30);
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new AstahRuntimeException(e);
         }
     }
