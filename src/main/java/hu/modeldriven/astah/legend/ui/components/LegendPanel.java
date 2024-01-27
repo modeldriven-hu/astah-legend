@@ -120,7 +120,21 @@ public class LegendPanel extends AbstractLegendPanel {
                 MaterialDesign.MDI_ARROW_DOWN,
                 16,
                 UIManager.getColor("Button.foreground")));
-        
+
+        addButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_PLUS,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        removeButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_MINUS,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        editButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_PENCIL,
+                16,
+                UIManager.getColor("Button.foreground")));
 
         addButton.addActionListener(e -> eventBus.publish(new AddLegendItemRequestedEvent()));
 
