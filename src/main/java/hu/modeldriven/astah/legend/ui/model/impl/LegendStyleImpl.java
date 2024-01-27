@@ -8,14 +8,19 @@ import java.awt.Color;
 
 public class LegendStyleImpl implements LegendStyle {
 
-    private Color backgroundColor = Color.RED;
-    private Color borderColor = Color.GREEN;
-    private int borderWidth = 1;
-    private BorderType borderType = BorderType.DASHED;
+    private Color backgroundColor;
+    private Color borderColor;
+    private int borderWidth;
+    private BorderType borderType;
 
-    private BorderFormat borderFormat = BorderFormat.ROUNDED;
+    private BorderFormat borderFormat;
 
     public LegendStyleImpl() {
+        this.backgroundColor = new Color(255, 255, 204);
+        this.borderColor = Color.BLACK;
+        this.borderWidth = 2;
+        this.borderType = BorderType.SOLID;
+        this.borderFormat = BorderFormat.RECTANGLE;
     }
 
     public LegendStyleImpl(Color backgroundColor, Color borderColor, int borderWidth, BorderType borderType, BorderFormat borderFormat) {
