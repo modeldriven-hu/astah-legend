@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.legend.ui.legendItemTable;
+package hu.modeldriven.astah.legend.ui.table;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -6,6 +6,11 @@ import java.awt.Color;
 import java.awt.Component;
 
 public class ColorTableCellRenderer extends DefaultTableCellRenderer {
+
+    public ColorTableCellRenderer(){
+        super();
+    }
+
     @Override
     public Component getTableCellRendererComponent(JTable table,
                                                    Object value,
@@ -26,6 +31,11 @@ public class ColorTableCellRenderer extends DefaultTableCellRenderer {
             }
         }
 
+        if (isSelected) {
+            setBorder(BorderFactory.createLineBorder(UIManager.getColor("Table.selectionBackground"), 3));
+        } else {
+            setBorder(BorderFactory.createLineBorder(UIManager.getColor("Table.background"), 3));
+        }
         return this;
     }
 }

@@ -1,5 +1,6 @@
 package hu.modeldriven.astah.legend.ui.model.impl;
 
+import hu.modeldriven.astah.core.palette.Palette;
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 
 import java.awt.Color;
@@ -19,10 +20,10 @@ public class LegendItemImpl implements LegendItem {
 
     boolean ignorePresentation;
 
-    public LegendItemImpl() {
+    public LegendItemImpl(Color backgroundColor) {
         this.id = UUID.randomUUID().toString();
         this.name = "Item";
-        this.backgroundColor = Color.red;
+        this.backgroundColor = backgroundColor;
         this.textColor = Color.black;
         this.script = "true";
         this.ignorePresentation = true;

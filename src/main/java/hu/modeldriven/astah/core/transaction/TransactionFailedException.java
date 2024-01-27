@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.core;
+package hu.modeldriven.astah.core.transaction;
 
 public class TransactionFailedException extends Exception {
 

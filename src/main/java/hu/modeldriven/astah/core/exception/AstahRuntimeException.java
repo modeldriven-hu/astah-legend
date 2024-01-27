@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.core;
+package hu.modeldriven.astah.core.exception;
 
 public class AstahRuntimeException extends RuntimeException {
 

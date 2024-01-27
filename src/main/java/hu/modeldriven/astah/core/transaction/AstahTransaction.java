@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.core;
+package hu.modeldriven.astah.core.transaction;
 
 import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.editor.ITransactionManager;

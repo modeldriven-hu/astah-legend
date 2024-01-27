@@ -2,7 +2,7 @@ package hu.modeldriven.astah.legend.ui.usecase;
 
 import hu.modeldriven.astah.legend.ui.event.LegendItemRemovedEvent;
 import hu.modeldriven.astah.legend.ui.event.RemoveLegendItemRequestedEvent;
-import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
+import hu.modeldriven.astah.legend.ui.table.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;

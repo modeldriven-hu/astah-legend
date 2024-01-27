@@ -1,4 +1,4 @@
-package hu.modeldriven.astah.legend.ui.legendItemTable;
+package hu.modeldriven.astah.legend.ui.table;
 
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 

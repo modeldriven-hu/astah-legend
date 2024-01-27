@@ -4,6 +4,7 @@ import com.change_vision.jude.api.inf.AstahAPI;
 import com.change_vision.jude.api.inf.editor.BlockDefinitionDiagramEditor;
 import com.change_vision.jude.api.inf.model.IDiagram;
 import com.change_vision.jude.api.inf.project.ProjectAccessor;
+import hu.modeldriven.astah.core.exception.AstahRuntimeException;
 
 public class AstahRepresentation {
 

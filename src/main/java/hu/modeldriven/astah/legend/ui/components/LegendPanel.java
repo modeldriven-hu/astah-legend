@@ -2,8 +2,8 @@ package hu.modeldriven.astah.legend.ui.components;
 
 import hu.modeldriven.astah.core.AstahRepresentation;
 import hu.modeldriven.astah.legend.ui.event.*;
-import hu.modeldriven.astah.legend.ui.legendItemTable.ColorTableCellRenderer;
-import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
+import hu.modeldriven.astah.legend.ui.table.ColorTableCellRenderer;
+import hu.modeldriven.astah.legend.ui.table.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.astah.legend.ui.model.LegendModel;
 import hu.modeldriven.astah.legend.ui.usecase.*;
