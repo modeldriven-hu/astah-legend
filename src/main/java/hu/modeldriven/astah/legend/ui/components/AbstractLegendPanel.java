@@ -48,7 +48,6 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        topPanel.setPreferredSize(new java.awt.Dimension(0, 30));
         topPanel.setLayout(new java.awt.BorderLayout());
 
         toolBar.setFloatable(true);
@@ -56,27 +55,19 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         newButton.setText("New");
         newButton.setFocusable(false);
-        newButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(newButton);
 
         openButton.setText("Open");
         openButton.setFocusable(false);
-        openButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        openButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(openButton);
 
         saveButton.setText("Save");
         saveButton.setFocusable(false);
-        saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        saveButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(saveButton);
         toolBar.add(buttonSeparator);
 
         applyLegendButton.setText("Apply on diagram");
         applyLegendButton.setFocusable(false);
-        applyLegendButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        applyLegendButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(applyLegendButton);
 
         topPanel.add(toolBar, java.awt.BorderLayout.CENTER);

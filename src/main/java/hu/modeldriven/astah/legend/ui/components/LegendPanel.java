@@ -8,7 +8,10 @@ import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.astah.legend.ui.model.LegendModel;
 import hu.modeldriven.astah.legend.ui.usecase.*;
 import hu.modeldriven.core.eventbus.EventBus;
+import org.kordamp.ikonli.materialdesign.MaterialDesign;
+import org.kordamp.ikonli.swing.FontIcon;
 
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.Color;
@@ -38,6 +41,27 @@ public class LegendPanel extends AbstractLegendPanel {
     }
 
     private void initLegendPanel() {
+
+        newButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_FILE,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        openButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_DESKTOP_MAC,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        saveButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_CONTENT_SAVE,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        applyLegendButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_RUN,
+                16,
+                UIManager.getColor("Button.foreground")));
+
         newButton.addActionListener(e -> eventBus.publish(new ResetRequestedEvent()));
         openButton.addActionListener(e -> eventBus.publish(new OpenFileRequestedEvent()));
         saveButton.addActionListener(e -> eventBus.publish(new SaveFileRequestedEvent(legendModel.getLegend())));
@@ -86,6 +110,18 @@ public class LegendPanel extends AbstractLegendPanel {
     }
 
     private void initLegendItemPanel() {
+
+        upButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_ARROW_UP,
+                16,
+                UIManager.getColor("Button.foreground")));
+
+        downButton.setIcon(FontIcon.of(
+                MaterialDesign.MDI_ARROW_DOWN,
+                16,
+                UIManager.getColor("Button.foreground")));
+        
+
         addButton.addActionListener(e -> eventBus.publish(new AddLegendItemRequestedEvent()));
 
         removeButton.addActionListener(e -> {
