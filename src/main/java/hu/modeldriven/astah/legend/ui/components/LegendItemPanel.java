@@ -51,7 +51,8 @@ public class LegendItemPanel extends AbstractLegendItemPanel {
                     nameField.getText(),
                     backgroundColorPanel.getBackground(),
                     textColorPanel.getBackground(),
-                    scriptTextArea.getText()
+                    scriptTextArea.getText(),
+                    legendItem.ignorePresentation()
             );
 
             callback.accept(item);
@@ -68,5 +69,6 @@ public class LegendItemPanel extends AbstractLegendItemPanel {
         this.backgroundColorPanel.setBackground(legendItem.getBackgroundColor());
         this.textColorPanel.setBackground(legendItem.getTextColor());
         this.scriptTextArea.setText(legendItem.getScript());
+        this.ignorePresentationCheckBox.setSelected(legendItem.ignorePresentation());
     }
 }

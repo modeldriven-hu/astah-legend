@@ -14,4 +14,6 @@ public interface LegendItem {
 
     String getScript();
 
+    boolean ignorePresentation();
+
 }

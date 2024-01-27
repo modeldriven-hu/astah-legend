@@ -14,11 +14,12 @@ import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 import hu.modeldriven.core.groovy.GroovyScriptExecutor;
-import hu.modeldriven.core.groovy.ScriptExecutionException;
 
 import javax.swing.*;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
 
@@ -87,11 +88,15 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
 
     public boolean isMatching(IPresentation presentation, LegendItem legendItem) throws Exception {
 
-        System.err.println("IsMatching is called for " + presentation + " and " + legendItem.getName());
+        if (legendItem.ignorePresentation() && presentation.getModel() == null) {
+            return false;
+        }
 
-        Object value = executor.execute(legendItem.getScript(), "presentation", presentation);
+        Map<String, Object> arguments = new HashMap<>();
+        arguments.put("presentation", presentation);
+        arguments.put("element", presentation.getModel());
 
-        System.err.println("Value was " + value);
+        Object value = executor.execute(legendItem.getScript(), arguments);
 
         if (value instanceof Boolean) {
             return ((Boolean) value).booleanValue();

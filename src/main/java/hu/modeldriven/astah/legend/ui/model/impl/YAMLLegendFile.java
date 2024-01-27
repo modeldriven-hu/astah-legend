@@ -23,6 +23,8 @@ public class YAMLLegendFile implements LegendFile {
     public static final String TEXT_COLOR = "text-color";
     public static final String SCRIPT = "script";
     public static final String NAME = "name";
+
+    public static final String IGNORE_PRESENTATION = "ignore-presentation";
     private final File file;
     private final Yaml yaml;
 
@@ -70,6 +72,7 @@ public class YAMLLegendFile implements LegendFile {
             legendItemData.put(BACKGROUND_COLOR, new HexColor(legendItem.getBackgroundColor()).toString());
             legendItemData.put(TEXT_COLOR, new HexColor(legendItem.getTextColor()).toString());
             legendItemData.put(SCRIPT, Objects.toString(legendItem.getScript(), ""));
+            legendItemData.put(IGNORE_PRESENTATION, legendItem.ignorePresentation());
 
             legendItemsData.add(legendItemData);
         }
@@ -121,8 +124,9 @@ public class YAMLLegendFile implements LegendFile {
         Color backgroundColor = Color.decode(data.get(BACKGROUND_COLOR1).toString());
         Color textColor = Color.decode(data.get(TEXT_COLOR).toString());
         String script = data.get(SCRIPT).toString();
+        boolean ignorePresentation = Boolean.parseBoolean(data.get(IGNORE_PRESENTATION).toString());
 
-        return new LegendItemImpl(id, name, backgroundColor, textColor, script);
+        return new LegendItemImpl(id, name, backgroundColor, textColor, script, ignorePresentation);
     }
 
 }

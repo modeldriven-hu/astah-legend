@@ -49,19 +49,20 @@ public class AbstractLegendItemPanel extends JPanel {
                         "[]" +
                         "[]" +
                         "[]" +
+                        "[]" +
                         "[]"
         ));
 
-        JLabel label0 = new JLabel("Name:");
-        label0.setFont(labelFont);
-        contentPanel.add(label0, "cell 0 0");
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setFont(labelFont);
+        contentPanel.add(nameLabel, "cell 0 0");
 
         nameField = new JTextField();
-        contentPanel.add(nameField, "cell 1 0");
+        contentPanel.add(nameField, "cell 1 0 2 1");
 
-        JLabel label1 = new JLabel("Background color:");
-        label1.setFont(labelFont);
-        contentPanel.add(label1, "cell 0 1");
+        JLabel backgroundColorLabel = new JLabel("Background color:");
+        backgroundColorLabel.setFont(labelFont);
+        contentPanel.add(backgroundColorLabel, "cell 0 1");
 
         backgroundColorPanel = new JPanel();
         backgroundColorPanel.setPreferredSize(new Dimension(120, 20));
@@ -71,9 +72,9 @@ public class AbstractLegendItemPanel extends JPanel {
         backgroundColorButton = new JButton("Select...");
         contentPanel.add(backgroundColorButton, "cell 2 1");
 
-        JLabel label2 = new JLabel("Text color:");
-        label2.setFont(labelFont);
-        contentPanel.add(label2, "cell 0 2");
+        JLabel textColorLabel = new JLabel("Text color:");
+        textColorLabel.setFont(labelFont);
+        contentPanel.add(textColorLabel, "cell 0 2");
 
         textColorPanel = new JPanel();
         textColorPanel.setPreferredSize(new Dimension(120, 20));
@@ -83,9 +84,9 @@ public class AbstractLegendItemPanel extends JPanel {
         textColorButton = new JButton("Select...");
         contentPanel.add(textColorButton, "cell 2 2");
 
-        JLabel label3 = new JLabel("Script:");
-        label3.setFont(labelFont);
-        contentPanel.add(label3, "cell 0 3");
+        JLabel scriptLabel = new JLabel("Script:");
+        scriptLabel.setFont(labelFont);
+        contentPanel.add(scriptLabel, "cell 0 3");
 
         // https://github.com/bobbylight/RSyntaxTextArea/issues/269
         JTextComponent.removeKeymap("RTextAreaKeymap");
@@ -109,6 +110,13 @@ public class AbstractLegendItemPanel extends JPanel {
         scrollPane.setLineNumbersEnabled(true);
 
         contentPanel.add(scrollPane, "cell 1 3 2 1");
+
+        JLabel ignorePresentationLabel = new JLabel("Elements only:");
+        ignorePresentationLabel.setFont(labelFont);
+        contentPanel.add(ignorePresentationLabel, "cell 0 4");
+
+        ignorePresentationCheckBox = new JCheckBox();
+        contentPanel.add(ignorePresentationCheckBox, "cell 1 4");
 
         add(contentPanel, "cell 0 1");
 
@@ -134,17 +142,18 @@ public class AbstractLegendItemPanel extends JPanel {
         frame.setVisible(true);
     }
 
-    protected javax.swing.JButton backgroundColorButton;
-    protected javax.swing.JPanel backgroundColorPanel;
-    protected javax.swing.JButton textColorButton;
-    protected javax.swing.JPanel textColorPanel;
-    private final javax.swing.JPanel buttonPanel;
-    protected javax.swing.JButton cancelButton;
-    private final javax.swing.JPanel contentPanel;
-    private final javax.swing.JPanel infoPanel;
-    protected javax.swing.JButton okButton;
+    protected JButton backgroundColorButton;
+    protected JPanel backgroundColorPanel;
+    protected JButton textColorButton;
+    protected JPanel textColorPanel;
+    private JPanel buttonPanel;
+    protected JButton cancelButton;
+    private JPanel contentPanel;
+    private JPanel infoPanel;
+    protected JButton okButton;
     protected JTextField nameField;
-    protected org.fife.ui.rsyntaxtextarea.RSyntaxTextArea scriptTextArea;
-    protected org.fife.ui.rtextarea.RTextScrollPane scrollPane;
+    protected RSyntaxTextArea scriptTextArea;
+    protected RTextScrollPane scrollPane;
+    protected JCheckBox ignorePresentationCheckBox;
 
 }

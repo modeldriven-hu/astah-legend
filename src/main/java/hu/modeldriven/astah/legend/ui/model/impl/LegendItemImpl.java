@@ -17,20 +17,24 @@ public class LegendItemImpl implements LegendItem {
 
     String script;
 
+    boolean ignorePresentation;
+
     public LegendItemImpl() {
         this.id = UUID.randomUUID().toString();
         this.name = "Item";
         this.backgroundColor = Color.red;
         this.textColor = Color.black;
         this.script = "true";
+        this.ignorePresentation = true;
     }
 
-    public LegendItemImpl(String id, String name, Color backgroundColor, Color textColor, String script) {
+    public LegendItemImpl(String id, String name, Color backgroundColor, Color textColor, String script, boolean ignorePresentation) {
         this.id = id;
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.textColor = textColor;
         this.script = script;
+        this.ignorePresentation = ignorePresentation;
     }
 
     public String getId() {
@@ -51,6 +55,11 @@ public class LegendItemImpl implements LegendItem {
 
     public String getScript() {
         return script;
+    }
+
+    @Override
+    public boolean ignorePresentation() {
+        return ignorePresentation;
     }
 
 }
