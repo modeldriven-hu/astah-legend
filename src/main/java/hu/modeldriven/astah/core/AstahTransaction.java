@@ -5,9 +5,15 @@ import com.change_vision.jude.api.inf.editor.ITransactionManager;
 
 public class AstahTransaction {
 
-    public void execute(Runnable command) throws Exception {
+    public void execute(Runnable command) throws TransactionFailedException {
 
-        ITransactionManager transactionManager = AstahAPI.getAstahAPI().getProjectAccessor().getTransactionManager();
+        ITransactionManager transactionManager;
+
+        try {
+            transactionManager = AstahAPI.getAstahAPI().getProjectAccessor().getTransactionManager();
+        } catch (ClassNotFoundException e) {
+            throw new TransactionFailedException(e);
+        }
 
         try {
             transactionManager.beginTransaction();
@@ -18,6 +24,7 @@ public class AstahTransaction {
 
         } catch (Exception e) {
             transactionManager.abortTransaction();
+            throw new TransactionFailedException(e);
         }
     }
 

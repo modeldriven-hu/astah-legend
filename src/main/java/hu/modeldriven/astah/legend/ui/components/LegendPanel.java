@@ -1,5 +1,6 @@
 package hu.modeldriven.astah.legend.ui.components;
 
+import hu.modeldriven.astah.core.AstahRepresentation;
 import hu.modeldriven.astah.legend.ui.event.*;
 import hu.modeldriven.astah.legend.ui.legendItemTable.ColorTableCellRenderer;
 import hu.modeldriven.astah.legend.ui.legendItemTable.LegendItemTableModel;
@@ -123,6 +124,9 @@ public class LegendPanel extends AbstractLegendPanel {
     }
 
     private void initUseCases() {
+
+        AstahRepresentation astah = new AstahRepresentation();
+
         eventBus.subscribe(legendModel);
         eventBus.subscribe(new CreateLegendItemUseCase(eventBus));
         eventBus.subscribe(new UpdateTableOnLegendItemCreationUseCase(tableModel));
@@ -138,7 +142,8 @@ public class LegendPanel extends AbstractLegendPanel {
         eventBus.subscribe(new UpdateLegendNameUseCase(legendNameTextField));
         eventBus.subscribe(new DisplayExceptionUseCase());
         eventBus.subscribe(new SaveFileUseCase(eventBus, this));
-        eventBus.subscribe(new ApplyLegendToDiagramUseCase(eventBus));
+        eventBus.subscribe(new ApplyLegendToDiagramUseCase(eventBus, astah));
+        eventBus.subscribe(new AddLegendToDiagramUseCase(eventBus, astah));
     }
 
 }
