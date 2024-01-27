@@ -26,21 +26,17 @@ import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
 import java.awt.geom.Point2D;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
 
-    private final Font headerFont = new Font("Dialog", Font.BOLD, 16);
-    private final Font itemFont = new Font("Dialog", Font.BOLD, 12);
     private static final int ITEM_BOX_SIZE = 30;
     private static final int MARGIN = 5;
     private static final int ITEM_TEXT_GAP = 5;
     private static final int HEADER_GAP = 15;
     private static final int ITEM_GAP = 5;
-
+    private final Font headerFont = new Font("Dialog", Font.BOLD, 12);
+    private final Font itemFont = new Font("Dialog", Font.BOLD, 12);
     private final EventBus eventBus;
     private final AstahRepresentation astah;
 
@@ -80,8 +76,8 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
     }
 
     private void drawLegendHeader(BlockDefinitionDiagramEditor editor, Legend legend, Point2D topLeftPoint) throws InvalidEditingException {
-        int legendWidth = calculateLegendWidth(itemFont, legend);
 
+        int legendWidth = calculateLegendWidth(headerFont, itemFont, legend);
         Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         Point2D headerPoint = new Point2D.Double(
@@ -103,7 +99,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
 
             // Create rectangle with proper color
 
-            INodePresentation legendItemPresentation = editor.createRect(new Point2D.Double(x,y), ITEM_BOX_SIZE, ITEM_BOX_SIZE);
+            INodePresentation legendItemPresentation = editor.createRect(new Point2D.Double(x, y), ITEM_BOX_SIZE, ITEM_BOX_SIZE);
 
             legendItemPresentation.setProperty(
                     Key.FILL_COLOR,
@@ -120,7 +116,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
             double labelX = x + ITEM_BOX_SIZE + ITEM_TEXT_GAP;
             double labelY = y + labelHeight / 2;
 
-            INodePresentation labelPresentation = editor.createText(item.getName(), new Point2D.Double(labelX,labelY));
+            INodePresentation labelPresentation = editor.createText(item.getName(), new Point2D.Double(labelX, labelY));
             setFontForLabel(labelPresentation, itemFont);
 
             y += ITEM_BOX_SIZE + ITEM_GAP;
@@ -134,7 +130,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
     }
 
     private void drawLegendRectangle(BlockDefinitionDiagramEditor editor, Legend legend, Point2D topLeftPoint) throws InvalidEditingException {
-        int legendWidth = calculateLegendWidth(itemFont, legend);
+        int legendWidth = calculateLegendWidth(headerFont, itemFont, legend);
         int legendHeight = calculateLegendHeight(headerFont, legend);
 
         INodePresentation legendPresentation = editor.createRect(topLeftPoint, legendWidth, legendHeight);
@@ -151,46 +147,45 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
                 Key.LINE_WIDTH,
                 String.valueOf(legend.getStyle().getBorderWidth()));
 
-        if (BorderFormat.ROUNDED.equals(legend.getStyle().getBorderFormat())){
+        if (BorderFormat.ROUNDED.equals(legend.getStyle().getBorderFormat())) {
             legendPresentation.setProperty(
                     Key.RECT_TYPE,
                     "round");
         }
 
-        if (BorderType.DASHED.equals(legend.getStyle().getBorderType())){
+        if (BorderType.DASHED.equals(legend.getStyle().getBorderType())) {
             legendPresentation.setProperty(
                     Key.LINE_TYPE,
                     "dash1");
         }
 
-        if (BorderType.DOTTED.equals(legend.getStyle().getBorderType())){
+        if (BorderType.DOTTED.equals(legend.getStyle().getBorderType())) {
             legendPresentation.setProperty(
                     Key.LINE_TYPE,
                     "dash2");
         }
     }
 
-    private int calculateLegendWidth(Font font, Legend legend) {
+    private int calculateLegendWidth(Font headerFont, Font legendItemFont, Legend legend) {
 
-        List<String> labels = getLegendLabels(legend);
+        int maxWidth = calculateTextSize(headerFont, legend.getName()).width;
 
-        String longestLabel = labels.stream()
-                .max(Comparator.comparingInt(String::length))
-                .orElse(null);
+        for (LegendItem item : legend.getLegendItems()) {
+            Dimension textSize = calculateTextSize(legendItemFont, item.getName());
+            maxWidth = Math.max(maxWidth, textSize.width);
+        }
 
-        Dimension textSize = calculateTextSize(font, longestLabel);
-
-        return MARGIN + ITEM_BOX_SIZE + ITEM_TEXT_GAP + textSize.width + MARGIN;
+        return MARGIN + ITEM_BOX_SIZE + ITEM_TEXT_GAP + maxWidth + MARGIN;
     }
 
-    private int calculateLegendHeight(Font headerFont, Legend legend){
+    private int calculateLegendHeight(Font headerFont, Legend legend) {
 
         Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         return MARGIN +
                 textSize.height +
                 HEADER_GAP +
-                legend.getLegendItems().size()  * ITEM_BOX_SIZE +
+                legend.getLegendItems().size() * ITEM_BOX_SIZE +
                 (legend.getLegendItems().size() - 1) * ITEM_GAP +
                 MARGIN;
     }
@@ -205,13 +200,6 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
                 Math.round(textLayout.getAdvance()),
                 Math.round(textLayout.getAscent() + textLayout.getDescent() + textLayout.getLeading())
         );
-    }
-
-    private List<String> getLegendLabels(Legend legend){
-        return Stream.concat(
-                        Stream.of(legend.getName()),
-                        legend.getLegendItems().stream().map(LegendItem::getName))
-                .collect(Collectors.toList());
     }
 
     @Override

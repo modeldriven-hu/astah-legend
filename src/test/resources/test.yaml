@@ -1,10 +1,14 @@
-legend-name: My legend
-legend-style:
-    background-color: "#AABB12"
-    border-color: "#FF0000"
-    border-width: 2
-    border-type: "SOLID"
-    border-format: "ROUNDED"
 legend-items:
-    - {name: "Warning", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('warning')"}
-    - {name: "Error", background-color: "#aabbcc", text-color: "#eeffee", "script": "return x.equals('error')" }
+- {background-color: '#FF2966', name: Item, text-color: '#000000', ignore-presentation: true,
+  script: 'true'}
+- {background-color: '#FFCC29', name: Item, text-color: '#000000', ignore-presentation: true,
+  script: 'true'}
+- {background-color: '#99FF66', name: Item, text-color: '#000000', ignore-presentation: true,
+  script: 'true'}
+- {background-color: '#29CCFF', name: Item, text-color: '#000000', ignore-presentation: true,
+  script: 'true'}
+- {background-color: '#9999FF', name: Item, text-color: '#000000', ignore-presentation: true,
+  script: 'true'}
+legend-name: Abraka dabra open the door and see the light
+legend-style: {background-color: '#FFFFCC', border-color: '#000000', border-width: 2,
+  border-type: SOLID, border-format: RECTANGLE}
