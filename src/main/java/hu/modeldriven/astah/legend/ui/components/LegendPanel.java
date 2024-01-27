@@ -11,6 +11,8 @@ import hu.modeldriven.core.eventbus.EventBus;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LegendPanel extends AbstractLegendPanel {
 
@@ -62,6 +64,24 @@ public class LegendPanel extends AbstractLegendPanel {
         });
 
         configureStyleButton.addActionListener(e -> eventBus.publish(new ModifyLegendStyleRequestedEvent(legendModel.getLegend().getStyle())));
+
+        legendItemTable.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2){
+
+                    int row = legendItemTable.rowAtPoint(e.getPoint());
+
+                    if (row == -1){
+                        return;
+                    }
+
+                    LegendItem item = tableModel.getRow(row);
+                    eventBus.publish(new ModifyLegendItemRequestedEvent(item));
+                }
+            }
+        });
     }
 
     private void initLegendItemPanel() {
