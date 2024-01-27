@@ -16,6 +16,7 @@ public class Legend {
     private final List<LegendItem> legendItems;
 
     public Legend() {
+        this.name = "";
         this.style = new LegendStyleImpl();
         this.legendItems = new ArrayList<>();
     }

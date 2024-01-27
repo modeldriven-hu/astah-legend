@@ -35,7 +35,7 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
     private static final int ITEM_BOX_SIZE = 30;
     private static final int MARGIN = 5;
     private static final int ITEM_TEXT_GAP = 5;
-    private static final int HEADER_GAP = 5;
+    private static final int HEADER_GAP = 15;
     private static final int ITEM_GAP = 5;
 
     private final EventBus eventBus;
@@ -91,8 +91,10 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
 
     private void drawLegendItems(BlockDefinitionDiagramEditor editor, Legend legend, Point2D topLeftPoint) throws InvalidEditingException {
 
-        double x = topLeftPoint.getX();
-        double y = topLeftPoint.getY() + MARGIN + HEADER_GAP;
+        TextLayout headerTextLayout = createTextLayout(legendFont, legend.getName());
+
+        double x = topLeftPoint.getX() + MARGIN;
+        double y = topLeftPoint.getY() + MARGIN + headerTextLayout.getBounds().getHeight() + HEADER_GAP;
 
         for (LegendItem item : legend.getLegendItems()) {
 
@@ -169,7 +171,9 @@ public class AddLegendToDiagramUseCase implements EventHandler<ApplyLegendReques
 
     private TextLayout createTextLayout(Font font, String text){
         FontRenderContext fontRenderContext = new FontRenderContext(null, true, true);
-        return new TextLayout(text, font, fontRenderContext);
+
+        // TextLayout does not accept empty strings
+        return new TextLayout(text.equals("") ? " " : text, font, fontRenderContext);
     }
 
     private List<String> getLegendLabels(Legend legend){
