@@ -63,7 +63,19 @@ public class LegendPanel extends AbstractLegendPanel {
                 16,
                 UIManager.getColor(BUTTON_FOREGROUND)));
 
-        newButton.addActionListener(e -> eventBus.publish(new ResetRequestedEvent()));
+        newButton.addActionListener(e -> {
+
+            int result = JOptionPane.showConfirmDialog(null,
+                    "The following operation will clear all fields. Do you want to continue?",
+                    "Create a new legend",
+                    JOptionPane.OK_CANCEL_OPTION);
+
+            if (result == JOptionPane.NO_OPTION) {
+                return;
+            }
+
+            eventBus.publish(new ResetRequestedEvent());
+        });
         openButton.addActionListener(e -> eventBus.publish(new OpenFileRequestedEvent()));
         saveButton.addActionListener(e -> eventBus.publish(new SaveFileRequestedEvent(legendModel.getLegend())));
         applyLegendButton.addActionListener(e -> eventBus.publish(new ApplyLegendRequestedEvent(legendModel.getLegend())));
