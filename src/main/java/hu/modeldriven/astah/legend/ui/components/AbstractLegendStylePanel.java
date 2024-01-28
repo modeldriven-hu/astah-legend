@@ -10,6 +10,18 @@ import java.awt.Font;
 
 public class AbstractLegendStylePanel extends JPanel {
 
+    private final javax.swing.JPanel buttonPanel;
+    private final javax.swing.JPanel contentPanel;
+    private final javax.swing.JPanel infoPanel;
+    protected javax.swing.JButton backgroundColorButton;
+    protected javax.swing.JPanel backgroundColorPanel;
+    protected javax.swing.JButton borderColorButton;
+    protected javax.swing.JPanel borderColorPanel;
+    protected javax.swing.JComboBox<String> borderFormatComboBox;
+    protected javax.swing.JComboBox<String> borderTypeComboBox;
+    protected javax.swing.JTextField borderWidthTextField;
+    protected javax.swing.JButton cancelButton;
+    protected javax.swing.JButton okButton;
     public AbstractLegendStylePanel() {
         super();
 
@@ -125,18 +137,5 @@ public class AbstractLegendStylePanel extends JPanel {
         frame.pack();
         frame.setVisible(true);
     }
-
-    protected javax.swing.JButton backgroundColorButton;
-    protected javax.swing.JPanel backgroundColorPanel;
-    protected javax.swing.JButton borderColorButton;
-    protected javax.swing.JPanel borderColorPanel;
-    protected javax.swing.JComboBox<String> borderFormatComboBox;
-    protected javax.swing.JComboBox<String> borderTypeComboBox;
-    protected javax.swing.JTextField borderWidthTextField;
-    private final javax.swing.JPanel buttonPanel;
-    protected javax.swing.JButton cancelButton;
-    private final javax.swing.JPanel contentPanel;
-    private final javax.swing.JPanel infoPanel;
-    protected javax.swing.JButton okButton;
 
 }

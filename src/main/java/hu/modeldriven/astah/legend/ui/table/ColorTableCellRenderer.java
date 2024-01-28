@@ -7,7 +7,7 @@ import java.awt.Component;
 
 public class ColorTableCellRenderer extends DefaultTableCellRenderer {
 
-    public ColorTableCellRenderer(){
+    public ColorTableCellRenderer() {
         super();
     }
 

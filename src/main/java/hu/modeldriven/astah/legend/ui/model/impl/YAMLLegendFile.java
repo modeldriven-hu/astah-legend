@@ -79,13 +79,9 @@ public class YAMLLegendFile implements LegendFile {
 
         legendData.put(LEGEND_ITEMS, legendItemsData);
 
-        try {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             String yamlAsString = yaml.dump(legendData);
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(yamlAsString);
-            writer.close();
-
         } catch (Exception e) {
             throw new LegendFileException(e);
         }

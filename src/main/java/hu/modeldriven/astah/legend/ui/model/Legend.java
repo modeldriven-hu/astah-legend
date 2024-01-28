@@ -10,10 +10,9 @@ import java.util.List;
  */
 public class Legend {
 
+    private final List<LegendItem> legendItems;
     private String name;
     private LegendStyle style;
-
-    private final List<LegendItem> legendItems;
 
     public Legend() {
         this.name = " ";

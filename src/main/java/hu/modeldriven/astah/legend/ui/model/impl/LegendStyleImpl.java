@@ -8,12 +8,12 @@ import java.awt.Color;
 
 public class LegendStyleImpl implements LegendStyle {
 
-    private Color backgroundColor;
-    private Color borderColor;
-    private int borderWidth;
-    private BorderType borderType;
+    private final Color backgroundColor;
+    private final Color borderColor;
+    private final int borderWidth;
+    private final BorderType borderType;
 
-    private BorderFormat borderFormat;
+    private final BorderFormat borderFormat;
 
     public LegendStyleImpl() {
         this.backgroundColor = new Color(255, 255, 204);

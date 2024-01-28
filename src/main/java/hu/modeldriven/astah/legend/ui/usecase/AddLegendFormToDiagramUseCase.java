@@ -81,7 +81,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
         Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         Point2D headerPoint = new Point2D.Double(
-                topLeftPoint.getX() + (legendWidth - textSize.width) / 2,
+                topLeftPoint.getX() + ((double) legendWidth - textSize.width) / 2,
                 topLeftPoint.getY() + MARGIN);
 
         INodePresentation labelPresentation = editor.createText(legend.getName(), headerPoint);
@@ -114,7 +114,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
             int labelHeight = calculateTextSize(itemFont, item.getName()).height;
 
             double labelX = x + ITEM_BOX_SIZE + ITEM_TEXT_GAP;
-            double labelY = y + labelHeight / 2;
+            double labelY = y + labelHeight / 2.0;
 
             INodePresentation labelPresentation = editor.createText(item.getName(), new Point2D.Double(labelX, labelY));
             setFontForLabel(labelPresentation, itemFont);
@@ -124,7 +124,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
 
     }
 
-    private void setFontForLabel(INodePresentation presentation, Font font) throws InvalidEditingException {
+    private void setFontForLabel(INodePresentation presentation, Font font) {
         AstahFont astahFont = new AstahFont(font);
         astahFont.apply(presentation);
     }
@@ -194,7 +194,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
         FontRenderContext fontRenderContext = new FontRenderContext(null, true, true);
 
         // TextLayout does not accept empty strings
-        TextLayout textLayout = new TextLayout(text.equals("") ? " " : text, font, fontRenderContext);
+        TextLayout textLayout = new TextLayout(text.isEmpty() ? " " : text, font, fontRenderContext);
 
         return new Dimension(
                 Math.round(textLayout.getAdvance()),

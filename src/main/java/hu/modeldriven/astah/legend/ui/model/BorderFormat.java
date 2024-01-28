@@ -10,10 +10,6 @@ public enum BorderFormat {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public static BorderFormat getByName(String name) {
         for (BorderFormat borderFormat : BorderFormat.values()) {
             if (borderFormat.getName().equals(name)) {
@@ -22,6 +18,10 @@ public enum BorderFormat {
         }
 
         return null;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }

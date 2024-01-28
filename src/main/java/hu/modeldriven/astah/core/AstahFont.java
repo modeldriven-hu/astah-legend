@@ -1,7 +1,6 @@
 package hu.modeldriven.astah.core;
 
 import com.change_vision.jude.api.inf.presentation.INodePresentation;
-import com.change_vision.jude.api.inf.presentation.PresentationPropertyConstants;
 
 import java.awt.Font;
 
@@ -9,7 +8,7 @@ public class AstahFont {
 
     private final Font font;
 
-    public AstahFont(Font font){
+    public AstahFont(Font font) {
         this.font = font;
     }
 

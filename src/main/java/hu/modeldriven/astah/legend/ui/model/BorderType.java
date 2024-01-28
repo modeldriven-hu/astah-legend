@@ -10,10 +10,6 @@ public enum BorderType {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public static BorderType getByName(String name) {
 
         for (BorderType borderType : BorderType.values()) {
@@ -23,6 +19,10 @@ public enum BorderType {
         }
 
         return null;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }

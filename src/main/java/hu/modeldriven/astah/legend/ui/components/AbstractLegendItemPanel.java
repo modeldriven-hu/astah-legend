@@ -14,6 +14,19 @@ import java.awt.Font;
 
 public class AbstractLegendItemPanel extends JPanel {
 
+    private final JPanel buttonPanel;
+    private final JPanel contentPanel;
+    private final JPanel infoPanel;
+    protected JButton backgroundColorButton;
+    protected JPanel backgroundColorPanel;
+    protected JButton textColorButton;
+    protected JPanel textColorPanel;
+    protected JButton cancelButton;
+    protected JButton okButton;
+    protected JTextField nameField;
+    protected RSyntaxTextArea scriptTextArea;
+    protected RTextScrollPane scrollPane;
+    protected JCheckBox ignorePresentationCheckBox;
     public AbstractLegendItemPanel() {
         super();
 
@@ -141,19 +154,5 @@ public class AbstractLegendItemPanel extends JPanel {
         frame.pack();
         frame.setVisible(true);
     }
-
-    protected JButton backgroundColorButton;
-    protected JPanel backgroundColorPanel;
-    protected JButton textColorButton;
-    protected JPanel textColorPanel;
-    private final JPanel buttonPanel;
-    protected JButton cancelButton;
-    private final JPanel contentPanel;
-    private final JPanel infoPanel;
-    protected JButton okButton;
-    protected JTextField nameField;
-    protected RSyntaxTextArea scriptTextArea;
-    protected RTextScrollPane scrollPane;
-    protected JCheckBox ignorePresentationCheckBox;
 
 }

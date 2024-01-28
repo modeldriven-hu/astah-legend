@@ -5,6 +5,31 @@ package hu.modeldriven.astah.legend.ui.components;
  */
 public class AbstractLegendPanel extends javax.swing.JPanel {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected javax.swing.JButton addButton;
+    protected javax.swing.JButton applyLegendButton;
+    protected javax.swing.JButton configureStyleButton;
+    protected javax.swing.JButton downButton;
+    protected javax.swing.JButton editButton;
+    protected javax.swing.JTable legendItemTable;
+    protected javax.swing.JTextField legendNameTextField;
+    protected javax.swing.JButton newButton;
+    protected javax.swing.JButton openButton;
+    protected javax.swing.JButton removeButton;
+    protected javax.swing.JButton saveButton;
+    protected javax.swing.JButton upButton;
+    private javax.swing.JToolBar.Separator buttonSeparator;
+    private javax.swing.JPanel contentPanel;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel legendItemPanel;
+    private javax.swing.JLabel legendNameLabel;
+    private javax.swing.JPanel legendPanel;
+    private javax.swing.JLabel legendStyleLabel;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JToolBar toolBar;
+    private javax.swing.JPanel topPanel;
     /**
      * Creates new form AbstractLegendPanel
      */
@@ -196,32 +221,5 @@ public class AbstractLegendPanel extends javax.swing.JPanel {
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    protected javax.swing.JButton addButton;
-    protected javax.swing.JButton applyLegendButton;
-    private javax.swing.JToolBar.Separator buttonSeparator;
-    protected javax.swing.JButton configureStyleButton;
-    private javax.swing.JPanel contentPanel;
-    protected javax.swing.JButton downButton;
-    protected javax.swing.JButton editButton;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel legendItemPanel;
-    protected javax.swing.JTable legendItemTable;
-    private javax.swing.JLabel legendNameLabel;
-    protected javax.swing.JTextField legendNameTextField;
-    private javax.swing.JPanel legendPanel;
-    private javax.swing.JLabel legendStyleLabel;
-    protected javax.swing.JButton newButton;
-    protected javax.swing.JButton openButton;
-    protected javax.swing.JButton removeButton;
-    protected javax.swing.JButton saveButton;
-    private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JToolBar toolBar;
-    private javax.swing.JPanel topPanel;
-    protected javax.swing.JButton upButton;
     // End of variables declaration//GEN-END:variables
 }

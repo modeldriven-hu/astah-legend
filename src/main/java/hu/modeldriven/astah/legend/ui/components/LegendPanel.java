@@ -2,10 +2,10 @@ package hu.modeldriven.astah.legend.ui.components;
 
 import hu.modeldriven.astah.core.AstahRepresentation;
 import hu.modeldriven.astah.legend.ui.event.*;
-import hu.modeldriven.astah.legend.ui.table.ColorTableCellRenderer;
-import hu.modeldriven.astah.legend.ui.table.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.model.LegendItem;
 import hu.modeldriven.astah.legend.ui.model.LegendModel;
+import hu.modeldriven.astah.legend.ui.table.ColorTableCellRenderer;
+import hu.modeldriven.astah.legend.ui.table.LegendItemTableModel;
 import hu.modeldriven.astah.legend.ui.usecase.*;
 import hu.modeldriven.core.eventbus.EventBus;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
