@@ -1,6 +1,7 @@
 package hu.modeldriven.astah.legend.ui.model;
 
 import hu.modeldriven.astah.legend.ui.event.*;
+import hu.modeldriven.astah.legend.ui.model.impl.LegendImpl;
 import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventHandler;
 
@@ -16,10 +17,10 @@ import java.util.List;
  */
 public class LegendModel implements EventHandler<Event> {
 
-    private Legend legend;
+    private LegendImpl legend;
 
     public LegendModel() {
-        this.legend = new Legend();
+        this.legend = new LegendImpl();
     }
 
     @Override
@@ -56,7 +57,7 @@ public class LegendModel implements EventHandler<Event> {
     }
 
     private void handleResetRequested(){
-        this.legend = new Legend();
+        this.legend = new LegendImpl();
     }
 
     private void handleLegendNameChanged(LegendNameChangedEvent e){

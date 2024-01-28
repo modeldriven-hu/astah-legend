@@ -93,7 +93,7 @@ public class YAMLLegendFile implements LegendFile {
         LegendStyle style = createLegendStyle((Map<String, Object>) data.get(LEGEND_STYLE));
         List<LegendItem> legendItems = createLegendItems((List<Object>) data.get(LEGEND_ITEMS));
 
-        return new Legend(name, style, legendItems);
+        return new LegendImpl(name, style, legendItems);
     }
 
     private LegendStyle createLegendStyle(Map<String, Object> data) {
