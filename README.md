@@ -5,6 +5,8 @@ diagram elements based on rules described in Groovy language.
 
 # Screenshot
 
+![image](https://github.com/modeldriven-hu/astah-legend/assets/8182138/30fd0bb8-6c20-4736-87d3-4defc253350b)
+
 # Features
 
 - Reset, load, and save legend in YAML format
