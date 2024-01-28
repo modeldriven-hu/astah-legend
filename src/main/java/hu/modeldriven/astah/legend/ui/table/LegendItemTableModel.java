@@ -10,7 +10,7 @@ import java.util.List;
 
 public class LegendItemTableModel extends AbstractTableModel {
 
-    private final List<LegendItem> legendItems;
+    private final transient List<LegendItem> legendItems;
 
     public LegendItemTableModel() {
         this.legendItems = new ArrayList<>();

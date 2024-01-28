@@ -11,14 +11,12 @@ import java.util.function.Consumer;
 
 public class LegendStylePanel extends AbstractLegendStylePanel {
 
-    private final LegendStyleDialog parent;
-    private final Consumer<LegendStyle> callback;
+    private final transient LegendStyleDialog parentComponent;
+    private final transient Consumer<LegendStyle> callback;
 
-    private LegendStyle legendStyle;
-
-    public LegendStylePanel(LegendStyleDialog parent, Consumer<LegendStyle> callback) {
+    public LegendStylePanel(LegendStyleDialog parentComponent, Consumer<LegendStyle> callback) {
         super();
-        this.parent = parent;
+        this.parentComponent = parentComponent;
         this.callback = callback;
         initUIComponents();
     }
@@ -48,24 +46,21 @@ public class LegendStylePanel extends AbstractLegendStylePanel {
 
         okButton.addActionListener(actionEvent -> {
 
-            LegendStyle legendStyle = new LegendStyleImpl(
+            callback.accept(new LegendStyleImpl(
                     backgroundColorPanel.getBackground(),
                     borderColorPanel.getBackground(),
                     Integer.parseInt(borderWidthTextField.getText()),
                     BorderType.getByName(borderTypeComboBox.getSelectedItem().toString()),
-                    BorderFormat.getByName(borderFormatComboBox.getSelectedItem().toString())
+                    BorderFormat.getByName(borderFormatComboBox.getSelectedItem().toString()))
             );
 
-            callback.accept(legendStyle);
-
-            parent.dispose();
+            parentComponent.dispose();
         });
 
-        cancelButton.addActionListener(actionEvent -> parent.dispose());
+        cancelButton.addActionListener(actionEvent -> parentComponent.dispose());
     }
 
     public void setLegendStyle(LegendStyle legendStyle) {
-        this.legendStyle = legendStyle;
         this.backgroundColorPanel.setBackground(legendStyle.getBackgroundColor());
         this.borderColorPanel.setBackground(legendStyle.getBorderColor());
         this.borderWidthTextField.setText(String.valueOf(legendStyle.getBorderWidth()));

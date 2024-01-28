@@ -15,6 +15,7 @@ import hu.modeldriven.core.eventbus.Event;
 import hu.modeldriven.core.eventbus.EventBus;
 import hu.modeldriven.core.eventbus.EventHandler;
 import hu.modeldriven.core.groovy.GroovyScriptExecutor;
+import hu.modeldriven.core.groovy.ScriptExecutionException;
 
 import javax.swing.*;
 import java.util.Collections;
@@ -84,7 +85,7 @@ public class ApplyLegendToDiagramUseCase implements EventHandler<ApplyLegendRequ
         }
     }
 
-    public boolean isMatching(IPresentation presentation, LegendItem legendItem) throws Exception {
+    public boolean isMatching(IPresentation presentation, LegendItem legendItem) throws ScriptExecutionException {
 
         if (legendItem.ignorePresentation() && presentation.getModel() == null) {
             return false;

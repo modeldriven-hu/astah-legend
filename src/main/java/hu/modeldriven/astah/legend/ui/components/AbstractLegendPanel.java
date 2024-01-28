@@ -3,6 +3,7 @@ package hu.modeldriven.astah.legend.ui.components;
 /**
  * @author zsolt
  */
+@SuppressWarnings({"squid:S1450"})
 public class AbstractLegendPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

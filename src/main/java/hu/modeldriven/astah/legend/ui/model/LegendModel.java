@@ -25,53 +25,77 @@ public class LegendModel implements EventHandler<Event> {
     @Override
     public void handleEvent(Event event) {
 
-        List<LegendItem> items = this.legend.getLegendItems();
-
         if (event instanceof ResetRequestedEvent) {
-            this.legend = new Legend();
+            handleResetRequested();
         }
 
         if (event instanceof LegendNameChangedEvent) {
-            LegendNameChangedEvent e = (LegendNameChangedEvent) event;
-            this.legend.setName(e.getName());
+            handleLegendNameChanged((LegendNameChangedEvent) event);
         }
 
         if (event instanceof LegendStyleModifiedEvent) {
-            LegendStyleModifiedEvent e = (LegendStyleModifiedEvent) event;
-            this.legend.setStyle(e.getLegendStyle());
+            handleLegendStyleModified ((LegendStyleModifiedEvent)event);
         }
 
         if (event instanceof LegendItemCreatedEvent) {
-            LegendItemCreatedEvent e = (LegendItemCreatedEvent) event;
-            items.add(e.getLegendItem());
+            handleLegendItemCreated((LegendItemCreatedEvent)event);
         }
 
         if (event instanceof LegendItemModifiedEvent) {
-            LegendItemModifiedEvent e = (LegendItemModifiedEvent) event;
-
-            for (int i = 0; i < items.size(); i++) {
-                if (matches(items.get(i), e.getLegendItem())) {
-                    items.set(i, e.getLegendItem());
-                    break;
-                }
-            }
+            handleLegendItemModified((LegendItemModifiedEvent) event);
         }
 
         if (event instanceof LegendItemRemovedEvent) {
-            LegendItemRemovedEvent e = (LegendItemRemovedEvent) event;
-            this.legend.getLegendItems().removeIf(item -> matches(item, e.getLegendItem()));
+            handleLegendItemRemoved((LegendItemRemovedEvent)event);
         }
 
         if (event instanceof LegendItemReorganizedEvent) {
-            LegendItemReorganizedEvent e = (LegendItemReorganizedEvent) event;
+            handleLegendItemReorganized((LegendItemReorganizedEvent)event);
+        }
 
-            for (int index = 0; index < items.size(); index++) {
-                if (matches(items.get(index), e.getLegendItem())) {
-                    if (e.getDirection().equals(LegendItemReorganizedEvent.Direction.UP) && index > 0) {
-                        Collections.swap(items, index, index - 1);
-                    } else if (index < items.size() - 1) {
-                        Collections.swap(items, index, index + 1);
-                    }
+    }
+
+    private void handleResetRequested(){
+        this.legend = new Legend();
+    }
+
+    private void handleLegendNameChanged(LegendNameChangedEvent e){
+        this.legend.setName(e.getName());
+    }
+
+    private void handleLegendStyleModified(LegendStyleModifiedEvent e){
+        this.legend.setStyle(e.getLegendStyle());
+    }
+
+    private void handleLegendItemCreated(LegendItemCreatedEvent e){
+        this.legend.getLegendItems().add(e.getLegendItem());
+    }
+
+    private void handleLegendItemRemoved(LegendItemRemovedEvent e){
+        this.legend.getLegendItems().removeIf(item -> matches(item, e.getLegendItem()));
+    }
+
+    private void handleLegendItemModified(LegendItemModifiedEvent e){
+
+        List<LegendItem> items = this.legend.getLegendItems();
+
+        for (int i = 0; i < items.size(); i++) {
+            if (matches(items.get(i), e.getLegendItem())) {
+                items.set(i, e.getLegendItem());
+                break;
+            }
+        }
+    }
+
+    private void handleLegendItemReorganized(LegendItemReorganizedEvent e) {
+        List<LegendItem> items = this.legend.getLegendItems();
+
+        for (int index = 0; index < items.size(); index++) {
+            if (matches(items.get(index), e.getLegendItem())) {
+                if (e.getDirection().equals(LegendItemReorganizedEvent.Direction.UP) && index > 0) {
+                    Collections.swap(items, index, index - 1);
+                } else if (index < items.size() - 1) {
+                    Collections.swap(items, index, index + 1);
                 }
             }
         }

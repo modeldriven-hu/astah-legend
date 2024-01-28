@@ -4,6 +4,8 @@ import com.change_vision.jude.api.inf.presentation.INodePresentation;
 
 import java.awt.Font;
 
+
+@SuppressWarnings({"squid:S1068","squid:S1144","squid:S1134","squid:S125"})
 public class AstahFont {
 
     private final Font font;

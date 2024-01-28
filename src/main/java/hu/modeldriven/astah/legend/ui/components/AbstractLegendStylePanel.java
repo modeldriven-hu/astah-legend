@@ -3,11 +3,9 @@ package hu.modeldriven.astah.legend.ui.components;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 
+@SuppressWarnings("squid:S1192")
 public class AbstractLegendStylePanel extends JPanel {
 
     private final javax.swing.JPanel buttonPanel;
@@ -131,7 +129,7 @@ public class AbstractLegendStylePanel extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(BorderLayout.CENTER, new AbstractLegendStylePanel());
         frame.pack();

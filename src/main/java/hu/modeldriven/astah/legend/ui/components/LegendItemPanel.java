@@ -9,13 +9,13 @@ import java.util.function.Consumer;
 
 public class LegendItemPanel extends AbstractLegendItemPanel {
 
-    private final LegendItemDialog parent;
-    private final Consumer<LegendItem> callback;
-    private LegendItem legendItem;
+    private final transient LegendItemDialog parentComponent;
+    private final transient Consumer<LegendItem> callback;
+    private transient LegendItem legendItem;
 
-    public LegendItemPanel(LegendItemDialog parent, Consumer<LegendItem> callback) {
+    public LegendItemPanel(LegendItemDialog parentComponent, Consumer<LegendItem> callback) {
         super();
-        this.parent = parent;
+        this.parentComponent = parentComponent;
         this.callback = callback;
         initUIComponents();
     }
@@ -57,10 +57,10 @@ public class LegendItemPanel extends AbstractLegendItemPanel {
 
             callback.accept(item);
 
-            parent.dispose();
+            parentComponent.dispose();
         });
 
-        cancelButton.addActionListener(actionEvent -> parent.dispose());
+        cancelButton.addActionListener(actionEvent -> parentComponent.dispose());
     }
 
     public void setLegendItem(LegendItem legendItem) {

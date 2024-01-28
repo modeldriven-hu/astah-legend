@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+@SuppressWarnings("squid:S1192")
 public class AbstractLegendItemPanel extends JPanel {
 
     private final JPanel buttonPanel;
@@ -148,7 +149,7 @@ public class AbstractLegendItemPanel extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(BorderLayout.CENTER, new AbstractLegendItemPanel());
         frame.pack();

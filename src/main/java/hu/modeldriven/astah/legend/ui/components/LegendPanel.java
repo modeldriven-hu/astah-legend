@@ -20,11 +20,12 @@ import java.awt.event.MouseEvent;
 
 public class LegendPanel extends AbstractLegendPanel {
 
-    private final EventBus eventBus;
+    public static final String BUTTON_FOREGROUND = "Button.foreground";
+    private final transient EventBus eventBus;
 
-    private final LegendItemTableModel tableModel;
+    private final transient LegendItemTableModel tableModel;
 
-    private final LegendModel legendModel;
+    private final transient LegendModel legendModel;
 
     public LegendPanel(EventBus eventBus) {
         super();
@@ -45,22 +46,22 @@ public class LegendPanel extends AbstractLegendPanel {
         newButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_FILE,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         openButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_DESKTOP_MAC,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         saveButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_CONTENT_SAVE,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         applyLegendButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_RUN,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         newButton.addActionListener(e -> eventBus.publish(new ResetRequestedEvent()));
         openButton.addActionListener(e -> eventBus.publish(new OpenFileRequestedEvent()));
@@ -114,27 +115,27 @@ public class LegendPanel extends AbstractLegendPanel {
         upButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_ARROW_UP,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         downButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_ARROW_DOWN,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         addButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_PLUS,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         removeButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_MINUS,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         editButton.setIcon(FontIcon.of(
                 MaterialDesign.MDI_PENCIL,
                 16,
-                UIManager.getColor("Button.foreground")));
+                UIManager.getColor(BUTTON_FOREGROUND)));
 
         addButton.addActionListener(e -> eventBus.publish(new AddLegendItemRequestedEvent()));
 
