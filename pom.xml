@@ -17,7 +17,7 @@
         <groovy.version>4.0.16</groovy.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <junit.version>4.13.1</junit.version>
-        
+
     </properties>
     <modelVersion>4.0.0</modelVersion>
     <groupId>hu.modeldriven</groupId>

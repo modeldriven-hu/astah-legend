@@ -60,7 +60,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
     private void addLegendToDiagram(BlockDefinitionDiagramEditor editor, Legend legend) throws AstahRuntimeException {
         try {
 
-            Point2D.Double topLeftPoint = new Point2D.Double(100, 100);
+            Point2D.Double topLeftPoint = new Point2D.Double(10, 10);
 
             drawLegendRectangle(editor, legend, topLeftPoint);
             drawLegendContent(editor, legend, topLeftPoint);
