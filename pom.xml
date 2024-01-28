@@ -17,13 +17,6 @@
         <groovy.version>4.0.16</groovy.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <junit.version>4.13.1</junit.version>
-
-        <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
-
-        <!-- rule e1 -->
-        <sonar.issue.ignore.multicriteria.e1.ruleKey>
-            xml:S3422
-        </sonar.issue.ignore.multicriteria.e1.ruleKey>
         
     </properties>
     <modelVersion>4.0.0</modelVersion>
