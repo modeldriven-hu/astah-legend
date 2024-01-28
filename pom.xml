@@ -8,6 +8,7 @@
         <astah.version>1.1</astah.version>
         <astah.edition>sysml</astah.edition>
         <astah.path>/usr/lib/astah_sysml</astah.path>
+
         <flatlaf.version>2.0.1</flatlaf.version>
         <ikonli.version>2.6.0</ikonli.version>
         <miglayout.version>3.7.4</miglayout.version>
@@ -16,6 +17,14 @@
         <groovy.version>4.0.16</groovy.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <junit.version>4.13.1</junit.version>
+
+        <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
+
+        <!-- rule e1 -->
+        <sonar.issue.ignore.multicriteria.e1.ruleKey>
+            xml:S3422
+        </sonar.issue.ignore.multicriteria.e1.ruleKey>
+        
     </properties>
     <modelVersion>4.0.0</modelVersion>
     <groupId>hu.modeldriven</groupId>

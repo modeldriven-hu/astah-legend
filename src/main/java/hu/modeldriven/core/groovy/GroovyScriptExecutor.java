@@ -20,7 +20,6 @@ public class GroovyScriptExecutor implements ScriptExecutor {
         try {
             return shell.evaluate(script);
         } catch (Exception ex) {
-            ex.printStackTrace();
             throw new GroovyScriptExecutionException(ex);
         }
     }
