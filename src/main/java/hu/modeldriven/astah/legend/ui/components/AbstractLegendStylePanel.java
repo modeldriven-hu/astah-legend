@@ -3,7 +3,10 @@ package hu.modeldriven.astah.legend.ui.components;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
 @SuppressWarnings("squid:S1192")
 public class AbstractLegendStylePanel extends JPanel {
