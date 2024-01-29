@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>hu.modeldriven</groupId>
     <artifactId>astah-legend</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>astah-legend</name>
     <description>Legend plugin for Astah</description>
@@ -183,10 +183,10 @@
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <!-- | assume public classes are in the top package, and private classes
                             are under ".internal" -->
-                        <Export-Package>
+                        <!--<Export-Package>
                             !${bundle.namespace}.internal.*,hu.modeldriven.*;version="${project.version}"
-                        </Export-Package>
-                        <Private-Package>${bundle.namespace}.internal.*</Private-Package>
+                        </Export-Package>-->
+                        <!--<Private-Package>${bundle.namespace}.internal.*</Private-Package>-->
                         <Bundle-Activator>${bundle.namespace}.Activator</Bundle-Activator>
                         <Astah-Version>${astah.version}</Astah-Version>
                         <Astah-Edition>${astah.edition}</Astah-Edition>

@@ -30,6 +30,10 @@ import java.util.List;
 
 public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRequestedEvent> {
 
+    private static boolean DEBUG = false;
+
+    // There is a rendering error, this is a workaround
+    private static final int ASTAH_HORIZONTAL_LABEL_FIX = -10;
     private static final int ITEM_BOX_SIZE = 30;
     private static final int MARGIN = 5;
     private static final int ITEM_TEXT_GAP = 5;
@@ -81,7 +85,7 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
         Dimension textSize = calculateTextSize(headerFont, legend.getName());
 
         Point2D headerPoint = new Point2D.Double(
-                topLeftPoint.getX() + ((double) legendWidth - textSize.width) / 2,
+                topLeftPoint.getX() + ((double) legendWidth - textSize.width) / 2 + ASTAH_HORIZONTAL_LABEL_FIX,
                 topLeftPoint.getY() + MARGIN);
 
         INodePresentation labelPresentation = editor.createText(legend.getName(), headerPoint);
@@ -111,13 +115,25 @@ public class AddLegendFormToDiagramUseCase implements EventHandler<ApplyLegendRe
 
             // Add label
 
-            int labelHeight = calculateTextSize(itemFont, item.getName()).height;
+            Dimension labelSize = calculateTextSize(itemFont, item.getName());
 
             double labelX = x + ITEM_BOX_SIZE + ITEM_TEXT_GAP;
-            double labelY = y + labelHeight / 2.0;
+            double labelY = y + labelSize.height / 2.0;
 
-            INodePresentation labelPresentation = editor.createText(item.getName(), new Point2D.Double(labelX, labelY));
+            INodePresentation labelPresentation = editor.createText(item.getName().trim(),
+                    new Point2D.Double(labelX + ASTAH_HORIZONTAL_LABEL_FIX, labelY));
+
             setFontForLabel(labelPresentation, itemFont);
+
+            if (DEBUG) {
+                INodePresentation debugRectangle = editor.createRect(new Point2D.Double(labelX, labelY),
+                        labelSize.width, labelSize.height);
+
+                debugRectangle.setProperty(
+                        Key.LINE_COLOR,
+                        new HexColor(Color.RED).toString());
+            }
+
 
             y += ITEM_BOX_SIZE + ITEM_GAP;
         }
